@@ -304,21 +304,6 @@
               </xsl:if>
             </table>
             <br/>
-            <table role="presentation" style="color:red;font-weight:bold">
-              <tr>
-                <td>TEST URL</td>
-              </tr>
-              <tr>
-                <td>
-                  <a>
-                    <xsl:attribute name="href">
-                      <xsl:value-of select="concat(                      'https://caul-cbua.relais-host.com/user/login.html?group=patron',                      '&amp;LS=', substring(notification_data/organization_unit/isil_code, 3),                      '&amp;title={notification_data/metadata/title}',                      '&amp;jtitle={notification_data/metadata/journal_title}',                      '&amp;au={notification_data/metadata/author}',                      '&amp;edition={notification_data/metadata/edition}',                      '&amp;issn={notification_data/metadata/issn}',                      '&amp;isbn={notification_data/metadata/isbn}',                      '&amp;oclcnum={notification_data/metadata/oclc_nr}',                      '&amp;pub={notification_data/metadata/publisher}',                      '&amp;date={notification_data/metadata/publication_date}',                      '&amp;place={notification_data/metadata/place_of_publication}',                      '&amp;spage={notification_data/metadata/start_page}',                      '&amp;epage={notification_data/metadata/end_page}',                      '&amp;pages={notification_data/metadata/pages}',                      '&amp;vol={notification_data/metadata/volume}',                      '&amp;iss={notification_data/metadata/issue}',                      '&amp;part={notification_data/metadata/part}',                      '&amp;chapter={notification_data/metadata/chapter}'                      )"/>
-                    </xsl:attribute>
-                    <xsl:text>This link should send the request to Relais (but bad URI characters in metadata will break it) </xsl:text>
-                  </a>
-                </td>
-              </tr>
-            </table>
             <table role="presentation">
               <tr>
                 <td>@@sincerely@@</td>
