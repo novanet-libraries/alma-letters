@@ -1,0 +1,8 @@
+Notes about letters arising from actually configuring them.
+
+Borrowing Activity Letter
+  Has the option of altering the subject line if there are late items.
+  e.g. we could (but don't)
+       "LibraryNotice - Patron Borrowing Activity"
+       "LibraryNotice - Patron Borrowing and Overdue Activity"
+       
