@@ -42,63 +42,6 @@
                     <br/>
                   </td>
                 </tr>
-                <xsl:if test="notification_data/overdue_loans_by_library/library_loans_for_display">
-                  <tr>
-                    <td>
-                      <strong>@@overdue_loans@@</strong>
-                    </td>
-                  </tr>
-                  <xsl:for-each select="notification_data/overdue_loans_by_library/library_loans_for_display">
-                    <tr>
-                      <td>
-                        <table cellpadding="5" class="listing">
-                          <xsl:attribute name="style">
-                            <xsl:call-template name="mainTableStyleCss"/>
-                          </xsl:attribute>
-                          <tr align="center" bgcolor="#f5f5f5">
-                            <td colspan="6">
-                              <h3>
-                                <xsl:value-of select="organization_unit/name"/>
-                              </h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th>@@title@@</th>
-                            <th>@@description@@</th>
-                            <th>@@author@@</th>
-                            <th>@@due_date@@</th>
-                            <th>@@fine@@</th>
-                            <th>@@library@@</th>
-                          </tr>
-                          <xsl:for-each select="item_loans/overdue_and_lost_loan_notification_display/item_loan">
-                            <tr>
-                              <td>
-                                <xsl:value-of select="title"/>
-                              </td>
-                              <td>
-                                <xsl:value-of select="description"/>
-                              </td>
-                              <td>
-                                <xsl:value-of select="author"/>
-                              </td>
-                              <td>
-                                <xsl:value-of select="due_date"/>
-                              </td>
-                              <td>
-                                <xsl:value-of select="normalized_fine"/>
-                              </td>
-                              <td>
-                                <xsl:value-of select="library_name"/>
-                              </td>
-                            </tr>
-                          </xsl:for-each>
-                        </table>
-                      </td>
-                    </tr>
-                    <hr/>
-                    <br/>
-                  </xsl:for-each>
-                </xsl:if>
                 <xsl:if test="notification_data/loans_by_library/library_loans_for_display">
                   <tr>
                     <td>
@@ -149,6 +92,69 @@
                   </xsl:for-each>
                 </xsl:if>
               </xsl:if>
+              
+              
+              <!-- need some kind of spacer / header here -->         
+              
+              <xsl:if test="notification_data/overdue_loans_by_library/library_loans_for_display">
+                <tr>
+                  <td>
+                    <strong>@@overdue_loans@@</strong>
+                  </td>
+                </tr>
+                <xsl:for-each select="notification_data/overdue_loans_by_library/library_loans_for_display">
+                  <tr>
+                    <td>
+                      <table cellpadding="5" class="listing">
+                        <xsl:attribute name="style">
+                          <xsl:call-template name="mainTableStyleCss"/>
+                        </xsl:attribute>
+                        <tr align="center" bgcolor="#f5f5f5">
+                          <td colspan="6">
+                            <h3>
+                              <xsl:value-of select="organization_unit/name"/>
+                            </h3>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>@@title@@</th>
+                          <th>@@description@@</th>
+                          <th>@@author@@</th>
+                          <th>@@due_date@@</th>
+                          <th>@@fine@@</th>
+                          <th>@@library@@</th>
+                        </tr>
+                        <xsl:for-each select="item_loans/overdue_and_lost_loan_notification_display/item_loan">
+                          <tr>
+                            <td>
+                              <xsl:value-of select="title"/>
+                            </td>
+                            <td>
+                              <xsl:value-of select="description"/>
+                            </td>
+                            <td>
+                              <xsl:value-of select="author"/>
+                            </td>
+                            <td>
+                              <xsl:value-of select="due_date"/>
+                            </td>
+                            <td>
+                              <xsl:value-of select="normalized_fine"/>
+                            </td>
+                            <td>
+                              <xsl:value-of select="library_name"/>
+                            </td>
+                          </tr>
+                        </xsl:for-each>
+                      </table>
+                    </td>
+                  </tr>
+                  <br/>
+                </xsl:for-each>
+              </xsl:if>
+              
+              <!-- need some kind of spacer / header here -->         
+              
               <xsl:if test="notification_data/organization_fee_list/string">
                 <tr>
                   <td>
