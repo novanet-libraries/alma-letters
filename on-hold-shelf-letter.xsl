@@ -34,7 +34,7 @@
           <div class="messageBody">
             <table role='presentation' cellspacing="0" cellpadding="5" border="0">
               <tr>
-                <td>@@following_item_requested_on@@ @@can_picked_at@@ <xsl:value-of select="notification_data/request/assigned_unit_name"/> @@circulation_desk@@.</td>
+                <td>@@following_item_requested_on@@ @@can_picked_at@@ <xsl:value-of select="notification_data/request/assigned_unit_name"/>.</td>
               </tr>
               <xsl:if test="notification_data/request/work_flow_entity/expiration_date">
                 <tr>
