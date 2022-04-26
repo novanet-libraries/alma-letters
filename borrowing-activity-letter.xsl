@@ -169,7 +169,7 @@
                   </tr>
                 </xsl:for-each>
                 <tr>
-                  <td>
+                  <td align="right">
                     <strong>
 						@@total@@ <xsl:value-of select="notification_data/total_fee"/>
 						</strong>
