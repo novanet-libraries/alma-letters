@@ -315,8 +315,7 @@
           </div>
         </div>
         <xsl:call-template name="lastFooter"/>
-        <!-- footer.xsl -->
-        <xsl:call-template name="contactUs"/>
+        <xsl:call-template name="myAccount" />
       </body>
     </html>
   </xsl:template>
