@@ -6,3 +6,12 @@ Borrowing Activity Letter
        "LibraryNotice - Patron Borrowing Activity"
        "LibraryNotice - Patron Borrowing and Overdue Activity"
        
+
+
+
+Todo
+use the same hyphen every time.
+fix <hr> and column order in Borrowing Activity Letter
+fix date in 'Doc Del Notification Letter'
+fix KINGS 'My Account' link
+
