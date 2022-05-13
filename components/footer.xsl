@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:template name="salutation">
-
-</xsl:template>
+  <xsl:template name="salutation"/>
   <xsl:template name="lastFooter">
     <table>
       <xsl:attribute name="style">
@@ -22,19 +20,7 @@
       </tr>
     </table>
   </xsl:template>
-  <xsl:template name="contactUs">
-    <table align="left">
-      <tr>
-        <td align="left">
-          <a><xsl:attribute name="href">
-                          @@email_contact_us@@
-                        </xsl:attribute>
-						@@contact_us@@
-					</a>
-        </td>
-      </tr>
-    </table>
-  </xsl:template>
+  <xsl:template name="contactUs"/>
   <xsl:template name="myAccount">
     <table align="left" style="margin-top:1em;">
       <tr>
