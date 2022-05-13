@@ -39,9 +39,13 @@
     <table align="left" style="margin-top:1em;">
       <tr>
         <td align="left">
-          <a><xsl:attribute name="style"><xsl:call-template name="myAccountStyleCss"/></xsl:attribute><xsl:attribute name="href">
-                          @@email_my_account@@
-                        </xsl:attribute>
+          <a>
+            <xsl:attribute name="style">
+              <xsl:call-template name="myAccountStyleCss"/>
+            </xsl:attribute>
+            <xsl:attribute name="href">
+              @@email_my_account@@
+            </xsl:attribute>
 						@@my_account@@
 					</a>
         </td>
