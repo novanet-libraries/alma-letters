@@ -38,9 +38,6 @@
         <div class="messageArea">
           <div class="messageBody">
             <table role="presentation" cellspacing="0" cellpadding="5" border="0">
-              <tr>
-                <td>@@your_request@@</td>
-              </tr>
               <xsl:if test="((notification_data/download_url_local != '' ) or (notification_data/download_url_saml != '') or (notification_data/download_url_cas != ''))">
                 <tr>
                   <td>@@to_see_the_resource@@</td>
@@ -65,7 +62,7 @@
                 </tr>
               </xsl:if>
               
-              <tr><td><xsl:text>It will be available until [Date].</xsl:text></td></tr>
+              <tr><td><xsl:text>@@your_request@@ [Date].</xsl:text></td></tr>
               
               <tr>
                 <td>
