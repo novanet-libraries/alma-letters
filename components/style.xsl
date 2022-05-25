@@ -30,7 +30,7 @@ background-color:#ffffff;  width:100%;
 </xsl:template>
 
 <xsl:template name="headerTableStyleCss">
-background-color:#e9e9e9;  width:100%; height:30px; text-shadow:1px 1px 1px #fff;
+background-color:#e9e9e9;  width:100%; text-shadow:1px 1px 1px #fff;
 </xsl:template>
 
 <xsl:template name="footerTableStyleCss">
