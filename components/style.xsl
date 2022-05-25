@@ -9,7 +9,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
  .listing td {border-bottom: 1px solid #eee}
  .listing tr:hover td {background-color:#eee}
  .listing th {background-color:#f5f5f5 }
- h1{line-height: 0.2em; margin: 0.1em 0;}
+ h1{background-color:#e9e9e9;  line-height: 1.3em; margin: 0.1em 0;}
  h4{line-height: 0.2em}
  </style>
 </xsl:template>
@@ -31,7 +31,7 @@ background-color:#ffffff;  width:100%;
 </xsl:template>
 
 <xsl:template name="headerTableStyleCss">
-background-color:#e9e9e9;  width:100%; text-shadow:1px 1px 1px #fff;
+width:100%; text-shadow:1px 1px 1px #fff;
 </xsl:template>
 
 <xsl:template name="footerTableStyleCss">
