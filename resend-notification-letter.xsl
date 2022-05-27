@@ -57,16 +57,18 @@
         <xsl:call-template name="lastFooter"/>
         <!-- footer.xsl -->
         <br/>
-        <table role='presentation'>
-          <xsl:if test="notification_data/file_name !=''">
-            <tr>
-              <td>
-                <strong> @@file_name@@:  </strong>
-                <xsl:value-of select="notification_data/file_name"/>
-              </td>
-            </tr>
-          </xsl:if>
-        </table>
+        <xsl:comment>
+          <table role='presentation'>
+            <xsl:if test="notification_data/file_name !=''">
+              <tr>
+                <td>
+                  <strong> @@file_name@@:  </strong>
+                  <xsl:value-of select="notification_data/file_name"/>
+                </td>
+              </tr>
+            </xsl:if>
+          </table>
+        </xsl:comment>
       </body>
     </html>
   </xsl:template>
