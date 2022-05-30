@@ -61,9 +61,13 @@
                         </td>
                 </tr>
               </xsl:if>
-              
-              <tr><td><xsl:text>@@your_request@@ [Date].</xsl:text></td></tr>
-              
+              <tr>
+                <td>
+                  <xsl:text>@@your_request@@ </xsl:text>
+                  <xsl:value-of select="notifcation_data/resource_sharing_request/item_arrival_date"/>
+                  <xsl:text>.</xsl:text>
+                </td>
+              </tr>
               <tr>
                 <td>
                   @@title@@:
@@ -72,11 +76,12 @@
                     , by <xsl:value-of select="notification_data/phys_item_display/author"/>
                   </xsl:if>
                   <xsl:if test="notification_data/phys_item_display/pages">
-                    <xsl:text> </xsl:text>(pages <xsl:value-of select="notification_data/phys_item_display/pages"/>)
+                    <xsl:text> (pages </xsl:text>
+                    <xsl:value-of select="notification_data/phys_item_display/pages"/>
+                    <xsl:text>)</xsl:text>
                   </xsl:if>                  
                 </td>
               </tr>
-              
               <xsl:choose>
                 <xsl:when test="notification_data/borrowing_document_delivery_max_num_of_views != ''">
                   <tr>
@@ -113,7 +118,7 @@
           </div>
         </div>
         <xsl:call-template name="lastFooter"/>
-        <xsl:call-template name="myAccount" />
+        <xsl:call-template name="myAccount"/>
         <!-- footer.xsl -->
       </body>
     </html>
