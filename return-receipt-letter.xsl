@@ -84,10 +84,16 @@
                             <xsl:value-of select="author"/>
                           </td>
                           <td>
-                            <xsl:value-of select="new_due_date_str"/>
+                            <!-- <xsl:value-of select="new_due_date_str"/> -->
+                            <xsl:call-template name="yyyymmdd">
+                              <xsl:with-param name="inputDate" select="new_due_date_str"/>
+                            </xsl:call-template>
                           </td>
                           <td>
-                            <xsl:value-of select="return_date_str"/>
+                            <!-- <xsl:value-of select="return_date_str"/> -->
+                            <xsl:call-template name="yyyymmdd">
+                              <xsl:with-param name="inputDate" select="return_date_str"/>
+                            </xsl:call-template>
                           </td>
                           <td>
                             <xsl:value-of select="normalized_fine"/>
