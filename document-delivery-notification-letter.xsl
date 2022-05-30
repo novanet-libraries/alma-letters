@@ -66,7 +66,7 @@
               <tr>
                 <td>
                   <xsl:text>@@your_request@@ </xsl:text>
-                  <xsl:value-of select="notifcation_data/resource_sharing_request/item_arrival_date"/>
+                  <xsl:value-of select="notification_data/resource_sharing_request/item_arrival_date"/>
                   <xsl:text>.</xsl:text>
                 </td>
               </tr>
