@@ -83,11 +83,7 @@
                   <xsl:if test="notification_data/phys_item_display/author">
                     , by <xsl:value-of select="notification_data/phys_item_display/author"/>
                   </xsl:if>
-                  <xsl:if test="notification_data/phys_item_display/pages">
-                    <xsl:text> (pages </xsl:text>
-                    <xsl:value-of select="notification_data/phys_item_display/pages"/>
-                    <xsl:text>)</xsl:text>
-                  </xsl:if>                  
+                  <xsl:if test="notification_data/phys_item_display/pages"><xsl:text> (pages </xsl:text><xsl:value-of select="notification_data/phys_item_display/pages"/><xsl:text>)</xsl:text></xsl:if>                  
                 </td>
               </tr>
               <xsl:choose>
