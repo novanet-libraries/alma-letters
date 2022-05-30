@@ -45,14 +45,28 @@
               </xsl:if>
               <xsl:if test="notification_data/download_url_local != ''">
                 <tr>
-                  <td>@@for_local_users@@<a><xsl:attribute name="href"><xsl:value-of select="notification_data/download_url_local"/></xsl:attribute>@@click_here@@</a>
-                         </td>
+                  <td>
+                    <xsl:text>@@for_local_users@@ </xsl:text>
+                    <a>
+                      <xsl:attribute name="href">
+                        <xsl:value-of select="notification_data/download_url_local"/>
+                      </xsl:attribute>
+                      <xsl:text>@@click_here@@</xsl:text>
+                    </a>
+                  </td>
                 </tr>
               </xsl:if>
               <xsl:if test="notification_data/download_url_saml != ''">
                 <tr>
-                  <td>@@for_saml_users@@<a><xsl:attribute name="href"><xsl:value-of select="notification_data/download_url_saml"/></xsl:attribute>@@click_here@@</a>
-                         </td>
+                  <td>
+                    <xsl:text>@@for_saml_users@@ </xsl:text>
+                    <a>
+                      <xsl:attribute name="href">
+                        <xsl:value-of select="notification_data/download_url_saml"/>
+                      </xsl:attribute>
+                      <xsl:text>@@click_here@@</xsl:text>
+                    </a>
+                  </td>
                 </tr>
               </xsl:if>
               <tr>
