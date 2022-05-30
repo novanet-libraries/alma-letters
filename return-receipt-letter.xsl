@@ -36,7 +36,12 @@
             <table cellspacing="0" cellpadding="5" border="0">
               <tr>
                 <td>
-                  <h>@@inform_returned_items@@ <xsl:value-of select="notification_data/organization_unit/name"/>, <xsl:value-of select="notification_data/circ_desk_name"/></h>
+                  <h>
+                    @@inform_returned_items@@
+                    <xsl:value-of select="notification_data/organization_unit/name"/>
+                  <!--  , <xsl:value-of select="notification_data/circ_desk_name"/> -->
+                  .
+                  </h>
                 </td>
               </tr>
               <tr>
