@@ -34,7 +34,19 @@
           <div class="messageBody">
             <table role='presentation' cellspacing="0" cellpadding="5" border="0">
               <tr>
-                <td>@@following_item_requested_on@@ @@can_picked_at@@ <xsl:value-of select="notification_data/request/assigned_unit_name"/>.</td>
+                <td>
+                  <xsl:text>@@following_item_requested_on@@ @@can_picked_at@@ </xsl:text>
+                  <xsl:choose>
+                    <xsl:when test="notification_data/request/calculated_destination_name != ''">
+                      <xsl:value-of select="notification_data/request/calculated_destination_name"/>
+                    </xsl:when>
+                    <xsl:when test="notification_data/request/assigned_unit_name != ''">
+                      <xsl:value-of select="notification_data/request/assigned_unit_name"/>
+                    </xsl:when>
+                    <xsl:otherwise>library</xsl:otherwise>
+                  </xsl:choose>
+                  <xsl:text>.</xsl:text>
+                </td>
               </tr>
               <xsl:if test="notification_data/request/work_flow_entity/expiration_date">
                 <tr>
