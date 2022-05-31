@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:include href="header.xsl"/>
   <xsl:include href="senderReceiver.xsl"/>
   <xsl:include href="mailReason.xsl"/>
@@ -32,7 +32,7 @@
         <!-- mailReason.xsl -->
         <div class="messageArea">
           <div class="messageBody">
-            <table role='presentation' cellspacing="0" cellpadding="5" border="0">
+            <table role="presentation" cellspacing="0" cellpadding="5" border="0">
               <tr>
                 <td>
                   <xsl:text>@@following_item_requested_on@@ @@can_picked_at@@ </xsl:text>
@@ -77,7 +77,7 @@
           </div>
         </div>
         <br/>
-        <table role='presentation'>
+        <table role="presentation">
           <tr>
             <td>@@sincerely@@</td>
           </tr>
@@ -86,7 +86,7 @@
           </tr>
         </table>
         <xsl:call-template name="lastFooter"/>
-        <xsl:call-template name="myAccount" />
+        <xsl:call-template name="myAccount"/>
         <!-- footer.xsl -->
       </body>
     </html>
