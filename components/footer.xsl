@@ -87,7 +87,15 @@
               <xsl:call-template name="myAccountStyleCss"/>
             </xsl:attribute>
             <xsl:attribute name="href">
-              @@email_my_account@@
+              <xsl:choose>
+                <xsl:when test="/notification_data/receivers/receiver/user/campus_code = 'KINGS'">
+                  <xsl:value-of select="$urllookup[code='KINGS']/myaccount"/>
+                </xsl:when>
+                <xsl:when test="/notification_data/receivers/receiver/user/source_institution_id">
+                  <xsl:value-of select="$urllookup[vid = /notification_data/receivers/receiver/user/source_institution_id]/myaccount"/>
+                </xsl:when>
+                <xsl:otherwise>@@email_my_account@@</xsl:otherwise>
+              </xsl:choose>
             </xsl:attribute>
 						@@my_account@@
 					</a>
