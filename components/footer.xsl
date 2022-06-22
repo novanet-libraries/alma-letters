@@ -91,9 +91,14 @@
                 <xsl:when test="/notification_data/receivers/receiver/user/campus_code = 'KINGS'">
                   <xsl:value-of select="$urllookup[campus='KINGS']/myaccount"/>
                 </xsl:when>
-                <xsl:when test="/notification_data/receivers/receiver/user/source_institution_id">
+                <xsl:when test="/notification_data/receivers/receiver/user/external_id">
+                  <xsl:value-of select="$urllookup[inst = /notification_data/receivers/receiver/user/external_id]/myaccount"/>
+                </xsl:when>
+ <!--  source_institution_id contains codes like 7191 or 7189, not '01NOVA_MSVU', etc. 
+                 <xsl:when test="/notification_data/receivers/receiver/user/source_institution_id">
                   <xsl:value-of select="$urllookup[inst = /notification_data/receivers/receiver/user/source_institution_id]/myaccount"/>
                 </xsl:when>
+ -->
                 <xsl:otherwise>@@email_my_account@@</xsl:otherwise>
               </xsl:choose>
             </xsl:attribute>
