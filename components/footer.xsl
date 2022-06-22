@@ -23,8 +23,8 @@
       <myaccount>https://dal.novanet.ca/discovery/account?vid=01NOVA_DAL:DAL</myaccount>
     </member>
     <member>
-      <code>KINGS</code>
       <inst>01NOVA_DAL:KINGS</inst>
+      <campus>KINGS</campus>
       <myaccount>https://kings.novanet.ca/discovery/account?vid=01NOVA_DAL:KINGS</myaccount>
     </member>
     <member>
@@ -89,7 +89,7 @@
             <xsl:attribute name="href">
               <xsl:choose>
                 <xsl:when test="/notification_data/receivers/receiver/user/campus_code = 'KINGS'">
-                  <xsl:value-of select="$urllookup[code='KINGS']/myaccount"/>
+                  <xsl:value-of select="$urllookup[campus='KINGS']/myaccount"/>
                 </xsl:when>
                 <xsl:when test="/notification_data/receivers/receiver/user/source_institution_id">
                   <xsl:value-of select="$urllookup[inst = /notification_data/receivers/receiver/user/source_institution_id]/myaccount"/>
