@@ -7,52 +7,52 @@
   <xsl:variable name="urllookup" select="document('')//urls:lookup/member"/>
   <urls:lookup>
     <member>
-      <vid>01NOVA_ACAD</vid>
+      <inst>01NOVA_ACAD</inst>
       <myaccount>https://acadia.novanet.ca/discovery/account?vid=01NOVA_ACAD:ACAD</myaccount>
     </member>
     <member>
-      <vid>01NOVA_AST</vid>
+      <inst>01NOVA_AST</inst>
       <myaccount>https://ast.novanet.ca/discovery/account?vid=01NOVA_AST:AST</myaccount>
     </member>
     <member>
-      <vid>01NOVA_CBU</vid>
+      <inst>01NOVA_CBU</inst>
       <myaccount>https://cbu.novanet.ca/discovery/account?vid=01NOVA_CBU:CBU</myaccount>
     </member>
     <member>
-      <vid>01NOVA_DAL</vid>
+      <inst>01NOVA_DAL</inst>
       <myaccount>https://dal.novanet.ca/discovery/account?vid=01NOVA_DAL:DAL</myaccount>
     </member>
     <member>
-      <vid>01NOVA_DAL:KINGS</vid>
       <code>KINGS</code>
+      <inst>01NOVA_DAL:KINGS</inst>
       <myaccount>https://kings.novanet.ca/discovery/account?vid=01NOVA_DAL:KINGS</myaccount>
     </member>
     <member>
-      <vid>01NOVA_NSCAD</vid>
+      <inst>01NOVA_NSCAD</inst>
       <myaccount>https://nscad.novanet.ca/discovery/account?vid=01NOVA_NSCAD:NSCAD</myaccount>
     </member>
     <member>
-      <vid>01NOVA_NSCC</vid>
+      <inst>01NOVA_NSCC</inst>
       <myaccount>https://nscc.novanet.ca/discovery/account?vid=01NOVA_NSCC:NSCC</myaccount>
     </member>
     <member>
-      <vid>01NOVA_MTA</vid>
+      <inst>01NOVA_MTA</inst>
       <myaccount>https://mta.novanet.ca/discovery/account?vid=01NOVA_MTA:MTA</myaccount>
     </member>
     <member>
-      <vid>01NOVA_MSVU</vid>
+      <inst>01NOVA_MSVU</inst>
       <myaccount>https://msvu.novanet.ca/discovery/account?vid=01NOVA_MSVU:MSVU</myaccount>
     </member>
     <member>
-      <vid>01NOVA_STFX</vid>
+      <inst>01NOVA_STFX</inst>
       <myaccount>https://stfx.novanet.ca/discovery/account?vid=01NOVA_STFX:STFX</myaccount>
     </member>
     <member>
-      <vid>01NOVA_SMU</vid>
+      <inst>01NOVA_SMU</inst>
       <myaccount>https://smu.novanet.ca/discovery/account?vid=01NOVA_SMU:SMU</myaccount>
     </member>
     <member>
-      <vid>01NOVA_USA</vid>
+      <inst>01NOVA_USA</inst>
       <myaccount>https://usainteanne.novanet.ca/discovery/account?vid=01NOVA_USA:USA</myaccount>
     </member>
   </urls:lookup>
@@ -92,7 +92,7 @@
                   <xsl:value-of select="$urllookup[code='KINGS']/myaccount"/>
                 </xsl:when>
                 <xsl:when test="/notification_data/receivers/receiver/user/source_institution_id">
-                  <xsl:value-of select="$urllookup[vid = /notification_data/receivers/receiver/user/source_institution_id]/myaccount"/>
+                  <xsl:value-of select="$urllookup[inst = /notification_data/receivers/receiver/user/source_institution_id]/myaccount"/>
                 </xsl:when>
                 <xsl:otherwise>@@email_my_account@@</xsl:otherwise>
               </xsl:choose>
