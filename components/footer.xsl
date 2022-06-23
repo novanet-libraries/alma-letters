@@ -102,8 +102,8 @@
                 <xsl:otherwise>@@email_my_account@@</xsl:otherwise>
               </xsl:choose>
             </xsl:attribute>
-						@@my_account@@
-					</a>
+            @@my_account@@
+          </a>
         </td>
       </tr>
     </table>
