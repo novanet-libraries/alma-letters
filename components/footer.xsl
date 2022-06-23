@@ -88,17 +88,18 @@
             </xsl:attribute>
             <xsl:attribute name="href">
               <xsl:choose>
-                <xsl:when test="/notification_data/receivers/receiver/user/campus_code = 'KINGS'">
-                  <xsl:value-of select="$urllookup[campus='KINGS']/myaccount"/>
-                </xsl:when>
-                <xsl:when test="/notification_data/receivers/receiver/user/external_id">
-                  <xsl:value-of select="$urllookup[inst = /notification_data/receivers/receiver/user/external_id]/myaccount"/>
-                </xsl:when>
- <!--  source_institution_id contains codes like 7191 or 7189, not '01NOVA_MSVU', etc. 
-                 <xsl:when test="/notification_data/receivers/receiver/user/source_institution_id">
-                  <xsl:value-of select="$urllookup[inst = /notification_data/receivers/receiver/user/source_institution_id]/myaccount"/>
-                </xsl:when>
- -->
+                <xsl:when test="/notification_data/receivers/receiver/user/campus_code = 'KINGS'">https://kings.novanet.ca/discovery/account?vid=01NOVA_DAL:KINGS</xsl:when>
+                <xsl:when test="/notification_data/receivers/receiver/user/external_id = '01NOVA_ACAD'">https://acadia.novanet.ca/discovery/account?vid=01NOVA_ACAD:ACAD</xsl:when>
+                <xsl:when test="/notification_data/receivers/receiver/user/external_id = '01NOVA_AST'">https://ast.novanet.ca/discovery/account?vid=01NOVA_AST:AST</xsl:when>
+                <xsl:when test="/notification_data/receivers/receiver/user/external_id = '01NOVA_CBU'">https://cbu.novanet.ca/discovery/account?vid=01NOVA_CBU:CBU</xsl:when>
+                <xsl:when test="/notification_data/receivers/receiver/user/external_id = '01NOVA_DAL'">https://dal.novanet.ca/discovery/account?vid=01NOVA_DAL:DAL</xsl:when>
+                <xsl:when test="/notification_data/receivers/receiver/user/external_id = '01NOVA_NSCAD'">https://nscad.novanet.ca/discovery/account?vid=01NOVA_NSCAD:NSCAD</xsl:when>
+                <xsl:when test="/notification_data/receivers/receiver/user/external_id = '01NOVA_NSCC'">https://nscc.novanet.ca/discovery/account?vid=01NOVA_NSCC:NSCC</xsl:when>
+                <xsl:when test="/notification_data/receivers/receiver/user/external_id = '01NOVA_MTA'">https://mta.novanet.ca/discovery/account?vid=01NOVA_MTA:MTA</xsl:when>
+                <xsl:when test="/notification_data/receivers/receiver/user/external_id = '01NOVA_MSVU'">https://msvu.novanet.ca/discovery/account?vid=01NOVA_MSVU:MSVU</xsl:when>
+                <xsl:when test="/notification_data/receivers/receiver/user/external_id = '01NOVA_STFX'">https://stfx.novanet.ca/discovery/account?vid=01NOVA_STFX:STFX</xsl:when>
+                <xsl:when test="/notification_data/receivers/receiver/user/external_id = '01NOVA_SMU'">https://smu.novanet.ca/discovery/account?vid=01NOVA_SMU:SMU</xsl:when>
+                <xsl:when test="/notification_data/receivers/receiver/user/external_id = '01NOVA_USA'">https://usainteanne.novanet.ca/discovery/account?vid=01NOVA_USA:USA</xsl:when>
                 <xsl:otherwise>@@email_my_account@@</xsl:otherwise>
               </xsl:choose>
             </xsl:attribute>
