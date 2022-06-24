@@ -31,13 +31,32 @@
             <table role='presentation' cellspacing="0" cellpadding="5" border="0">
               <tr>
                 <td>
-              @@bodyTextBeforeLink@@
-                            <a>
+                  @@bodyTextBeforeLink@@
+                  <a>
                     <xsl:attribute name="href">
                       <xsl:value-of select="notification_data/reset_pw_url"/>
                     </xsl:attribute>
-                @@linkLabel@@</a>
-              @@bodyTextAfterLink@@<br/>
+                    @@linkLabel@@
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  @@bodyTextAfterLink@@
+                  <xsl:choose>
+                    <xsl:when test="contains(notification_data/reset_pw_url, 'backUrl=')">one hour.</xsl:when>
+                    <xsl:otherwise>one week.</xsl:otherwise>
+                  </xsl:choose>
+                </td>
+              </tr>
+            </table>
+            <table role="presentation">
+              <tr>
+                <td>@@signature@@</td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="https://www.novanet.ca/novanet-libraries-main-circulation-desk-contacts/">Contact Information for Novanet Libraries</a>
                 </td>
               </tr>
             </table>
