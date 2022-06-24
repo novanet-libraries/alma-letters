@@ -44,6 +44,7 @@
           </div>
         </div>
         <xsl:call-template name="lastFooter"/>
+        <!-- link to "My Account" isn't helpful in a reset password letter -->
         <!-- footer.xsl -->
       </body>
     </html>
