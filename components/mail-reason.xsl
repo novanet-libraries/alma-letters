@@ -17,7 +17,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
               <xsl:value-of select="receivers/receiver/user/first_name"/>
             </xsl:when>
             <xsl:otherwise>
-              <xsl:value-of select="receivers/receiver/user/full_name"/>
+              <xsl:value-of select="concat(' ', receivers/receiver/user/first_name)"/>
+              <xsl:value-of select="concat(' ', receivers/receiver/user/middle_name)"/>
+              <xsl:value-of select="concat(' ', receivers/receiver/user/last_name)"/>
             </xsl:otherwise>
           </xsl:choose>
         </p>
