@@ -10,10 +10,10 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <p style="display:block; font-size:1.17em; margin-left:0; margin-right:0;">
           <xsl:text>@@dear@@&#160;</xsl:text>
           <xsl:choose>
-            <xsl:when test="receivers/receiver/user/preferred_first_name">
+            <xsl:when test=" '' != normalize-space(translate(receivers/receiver/user/preferred_first_name,'-',''))">
               <xsl:value-of select="receivers/receiver/user/preferred_first_name"/>
             </xsl:when>
-            <xsl:when test="receivers/receiver/user/first_name">
+            <xsl:when test=" '' != normalize-space(translate(receivers/receiver/user/first_name,'-',''))">
               <xsl:value-of select="receivers/receiver/user/first_name"/>
             </xsl:when>
             <xsl:otherwise>
