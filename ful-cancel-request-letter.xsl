@@ -38,7 +38,7 @@
 									@@we_cancel_y_req_of@@
                   <xsl:call-template name="recordTitle"/> <!-- recordTitle.xsl -->
 									@@on@@
-									<xsl:value-of select="notification_data/general_data/current_date"/>.
+									<!-- <xsl:value-of select="notification_data/general_data/current_date"/>. -->
 								</td>
               </tr>
 <!--
