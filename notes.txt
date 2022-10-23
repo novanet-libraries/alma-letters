@@ -13,5 +13,3 @@ Todo
 use the same hyphen every time.
 fix <hr> and column order in Borrowing Activity Letter
 fix date in 'Doc Del Notification Letter'
-fix KINGS 'My Account' link
-
