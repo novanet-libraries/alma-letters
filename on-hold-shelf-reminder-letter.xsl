@@ -59,7 +59,7 @@
                             <xsl:value-of select="phys_item_display/author"/>
                           </td>
                           <td>
-                            <xsl:value-of select="phys_item_display/item_barcode"/>
+                            <xsl:value-of select="phys_item_display/barcode"/>
                           </td>
                           <td>
                             <xsl:value-of select="request/work_flow_entity/expiration_date"/>
@@ -98,7 +98,7 @@
                             <xsl:value-of select="phys_item_display/author"/>
                           </td>
                           <td>
-                            <xsl:value-of select="phys_item_display/item_barcode"/>
+                            <xsl:value-of select="phys_item_display/barcode"/>
                           </td>
                           <td>
                             <xsl:value-of select="request/work_flow_entity/expiration_date"/>
