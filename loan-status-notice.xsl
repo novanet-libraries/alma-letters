@@ -90,13 +90,13 @@
                         </td>
                         <td>
                           <xsl:call-template name="yyyymmdd">
-                            <xsl:with-param select="old_due_date_str"/>
+                            <xsl:with-param name="inputDate" select="old_due_date_str"/>
                           </xsl:call-template>
                         </td>
                         <td>
                           <strong>
                             <xsl:call-template name="yyyymmdd">
-                              <xsl:with-param select="new_due_date_str"/>
+                              <xsl:with-param name="inputDate" select="new_due_date_str"/>
                             </xsl:call-template>
                           </strong>
                         </td>
