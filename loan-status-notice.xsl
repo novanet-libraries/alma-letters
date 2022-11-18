@@ -74,7 +74,7 @@
                       <th>@@description@@</th>
                       <th>@@author@@</th>
                       <th>@@old_due_date@@</th>
-                      <th>@@new_due_date@@</th>
+                      <th><strong>@@new_due_date@@</strong></th>
                       <th>@@library@@</th>
                     </tr>
                     <xsl:for-each select="notification_data/item_loans/item_loan">
@@ -90,13 +90,15 @@
                         </td>
                         <td>
                           <xsl:call-template name="yyyymmdd">
-                            <xsl:with-param select="old_due_date_str"/>
+                            <xsl:with-param name="inputDate" select="old_due_date_str"/>
                           </xsl:call-template>
                         </td>
                         <td>
-                          <xsl:call-template name="yyyymmdd">
-                            <xsl:with-param select="new_due_date_str"/>
-                          </xsl:call-template>
+                          <strong>
+                            <xsl:call-template name="yyyymmdd">
+                              <xsl:with-param name="inputDate" select="new_due_date_str"/>
+                            </xsl:call-template>
+                          </strong>
                         </td>
                         <td>
                           <xsl:value-of select="library_name"/>

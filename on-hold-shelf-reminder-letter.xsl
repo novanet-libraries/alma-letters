@@ -59,7 +59,7 @@
                             <xsl:value-of select="phys_item_display/author"/>
                           </td>
                           <td>
-                            <xsl:value-of select="phys_item_display/item_barcode"/>
+                            <xsl:value-of select="phys_item_display/barcode"/>
                           </td>
                           <td>
                             <xsl:value-of select="request/work_flow_entity/expiration_date"/>
@@ -98,7 +98,7 @@
                             <xsl:value-of select="phys_item_display/author"/>
                           </td>
                           <td>
-                            <xsl:value-of select="phys_item_display/item_barcode"/>
+                            <xsl:value-of select="phys_item_display/barcode"/>
                           </td>
                           <td>
                             <xsl:value-of select="request/work_flow_entity/expiration_date"/>
@@ -129,7 +129,7 @@
                 <td>@@sincerely@@</td>
               </tr>
               <tr>
-                <a href="https://www.novanet.ca/novanet-libraries-main-circulation-desk-contacts/">Contact Information for Novanet Libraries</a>
+                <td><a href="https://www.novanet.ca/novanet-libraries-main-circulation-desk-contacts/">Contact Information for Novanet Libraries</a></td>
               </tr>
             </table>
           </div>
