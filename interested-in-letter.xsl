@@ -111,6 +111,20 @@
               <br/>
             </td>
           </tr>
+          <tr>
+            <td>
+              <br/>
+				Link to Novanet Record	:
+
+						<br/>
+            </td>
+            <td>
+              <br/>
+              <a href="{notification_data/events/detailed_notifications_summary/permalink_url}"><xsl:value-of  select="notification_data/events/detailed_notifications_summary/permalink_url"/></a>
+              <br/>
+            </td>
+          </tr>
+		
         </table>
         <br/>
         <table role='presentation'>
