@@ -50,9 +50,7 @@
               </tr>
               <xsl:if test="notification_data/request/work_flow_entity/expiration_date">
                 <tr>
-                  <td>
-							 @@note_item_held_until@@ <xsl:value-of select="notification_data/request/work_flow_entity/expiration_date"/>.
-							 </td>
+                  <td> @@note_item_held_until@@ <xsl:value-of select="notification_data/request/work_flow_entity/expiration_date"/>. </td>
                 </tr>
               </xsl:if>
               <tr>
@@ -82,7 +80,9 @@
             <td>@@sincerely@@</td>
           </tr>
           <tr>
-            <td><a href="https://www.novanet.ca/novanet-libraries-main-circulation-desk-contacts/">Contact Information for Novanet Libraries</a></td>
+            <td>
+              <a href="https://www.novanet.ca/novanet-libraries-main-circulation-desk-contacts/">Contact Information for Novanet Libraries</a>
+            </td>
           </tr>
         </table>
         <xsl:call-template name="lastFooter"/>
