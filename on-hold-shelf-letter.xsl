@@ -82,7 +82,7 @@
             <td>@@sincerely@@</td>
           </tr>
           <tr>
-            <a href="https://www.novanet.ca/novanet-libraries-main-circulation-desk-contacts/">Contact Information for Novanet Libraries</a>
+            <td><a href="https://www.novanet.ca/novanet-libraries-main-circulation-desk-contacts/">Contact Information for Novanet Libraries</a></td>
           </tr>
         </table>
         <xsl:call-template name="lastFooter"/>
