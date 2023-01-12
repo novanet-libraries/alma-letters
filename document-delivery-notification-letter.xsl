@@ -43,19 +43,6 @@
                   <td>@@to_see_the_resource@@</td>
                 </tr>
               </xsl:if>
-              <xsl:if test="notification_data/download_url_local != ''">
-                <tr>
-                  <td>
-                    <xsl:text>@@for_local_users@@ </xsl:text>
-                    <a>
-                      <xsl:attribute name="href">
-                        <xsl:value-of select="notification_data/download_url_local"/>
-                      </xsl:attribute>
-                      <xsl:text>@@click_here@@</xsl:text>
-                    </a>
-                  </td>
-                </tr>
-              </xsl:if>
               <xsl:if test="notification_data/download_url_saml != ''">
                 <tr>
                   <td>
@@ -63,6 +50,19 @@
                     <a>
                       <xsl:attribute name="href">
                         <xsl:value-of select="notification_data/download_url_saml"/>
+                      </xsl:attribute>
+                      <xsl:text>@@click_here@@</xsl:text>
+                    </a>
+                  </td>
+                </tr>
+              </xsl:if>
+              <xsl:if test="notification_data/download_url_local != ''">
+                <tr>
+                  <td>
+                    <xsl:text>@@for_local_users@@ </xsl:text>
+                    <a>
+                      <xsl:attribute name="href">
+                        <xsl:value-of select="notification_data/download_url_local"/>
                       </xsl:attribute>
                       <xsl:text>@@click_here@@</xsl:text>
                     </a>
