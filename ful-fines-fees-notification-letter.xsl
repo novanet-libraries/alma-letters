@@ -95,6 +95,7 @@
         </table>
         <br/>
         <xsl:call-template name="lastFooter"/>
+        <xsl:call-template name="myAccount"/>
         <!-- footer.xsl -->
       </body>
     </html>
