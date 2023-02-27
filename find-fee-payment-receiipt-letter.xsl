@@ -65,7 +65,7 @@
               </td>
               <td align="right"><xsl:value-of select="fines_fee_transactions/fines_fee_transaction/transaction_ammount/currency"/> <xsl:value-of select="fines_fee_transactions/fines_fee_transaction/transaction_amount_display"/></td>
               <td>
-                <xsl:value-of select="fines_fee_transactions/fines_fee_transaction/transaction_method"/>
+                <xsl:value-of select="fines_fee_transactions/fines_fee_transaction/transaction_payment_method_display"/>
               </td>
               <td>
                 <xsl:value-of select="fines_fee_transactions/fines_fee_transaction/transaction_note"/>
