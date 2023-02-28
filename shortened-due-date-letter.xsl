@@ -56,7 +56,7 @@
                 <th><strong>New Due Date</strong></th>
                 <th>Reason</th>
               </tr>
-              <xsl:for-each select="notification_data/item_loans/item_loan">
+              <xsl:for-each select="notification_data/item_loan">
                 <tr>
                   <td>
                     <xsl:value-of select="title"/>
