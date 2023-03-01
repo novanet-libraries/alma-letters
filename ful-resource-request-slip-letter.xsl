@@ -223,6 +223,14 @@
                   </td>
                 </tr>
               </xsl:if>
+              <xsl:if test="notification_data/request/last_interest_date != ''">
+                <tr>
+                  <td>
+                    <strong>Last Interest Date: </strong>
+                    <xsl:value-of select="notification_data/request/last_interest_date"/>
+                  </td>
+                </tr>
+              </xsl:if>
               <xsl:if test="notification_data/request/note != ''">
                 <tr>
                   <td>
