@@ -48,7 +48,7 @@
                   <img src="cid:request_id_barcode.png" alt="Request Barcode"/>
                 </td>
               </tr>
-              <xsl:if test="notification_data/phys_item_display/barcode != ''">
+              <xsl:if test="notification_data/request/selected_inventory_type='ITEM'">
                 <tr>
                   <td>
                     <strong>@@item_barcode@@: </strong>
@@ -212,6 +212,14 @@
                   <td>
                     <strong>@@system_notes@@:</strong>
                     <xsl:value-of select="notification_data/request/system_notes"/>
+                  </td>
+                </tr>
+              </xsl:if>
+              <xsl:if test="notification_data/request/work_flow_entity/expiration_date != ''">
+                <tr>
+                  <td>
+                    <strong>@@expiration_date@@: </strong>
+                    <xsl:value-of select="notification_data/request/work_flow_entity/expiration_date"/>
                   </td>
                 </tr>
               </xsl:if>
