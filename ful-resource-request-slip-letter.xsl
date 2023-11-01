@@ -198,7 +198,14 @@
               <tr>
                 <td>
                   <strong>@@move_to_library@@: </strong>
-                  <xsl:value-of select="notification_data/destination"/>
+                  <xsl:choose>
+                    <xsl:when test="notification_data/destination='Home Delivery'">
+                      <xsl:value-of select="notification_data/request/delivery_address"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                      <xsl:value-of select="notification_data/destination"/>
+                    </xsl:otherwise>
+                  </xsl:choose>
                 </td>
               </tr>
               <tr>
