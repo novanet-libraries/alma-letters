@@ -199,7 +199,7 @@
                 <td>
                   <strong>@@move_to_library@@: </strong>
                   <xsl:choose>
-                    <xsl:when test="notification_data/destination='Home Delivery' or notification_data/destination='Office Delivery' or notification_data/destination='Temporary Address'">
+                    <xsl:when test="notification_data/destination='Home Delivery' or notification_data/destination='Office Delivery' or notification_data/destination='Mailing Address'">
                       <xsl:value-of select="notification_data/request/delivery_address"/>
                     </xsl:when>
                     <xsl:otherwise>
