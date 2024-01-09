@@ -5,13 +5,13 @@
     <head>
       <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
       <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-      <title>Exlibris Email</title>
+      <title>New Search Results</title>
     </head>
     <body style="padding: 0; font-family: Source Sans Pro,Helvetica Neue,Helvetica,Arial,sans-serif;">
       <table cellpadding="0" cellspacing="0" style="margin: auto; width: 600px;">
         <tr>
           <td style="background-color: #4d6b82; border-top-left-radius: 15px; border-top-right-radius: 15px;">
-            <img alt="The library Logo" style="width: 100px; height: 35px; padding: .85em;">
+            <img alt="library logo" style="width: 100px; height: 35px; padding: .85em;">
               <xsl:attribute name="src">
                 <xsl:value-of select="'https://www.novanet.ca/images/novanet-logo-white.svg'"/>
               </xsl:attribute>
