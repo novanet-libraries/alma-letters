@@ -13,7 +13,7 @@
           <td style="background-color: #4d6b82; border-top-left-radius: 15px; border-top-right-radius: 15px;">
             <img alt="The library Logo" style="width: 100px; height: 35px; padding: .85em;">
               <xsl:attribute name="src">
-                <xsl:value-of select="/notification_data/logo_path"/>
+                <xsl:value-of select="'https://www.novanet.ca/images/novanet-logo-white.svg'"/>
               </xsl:attribute>
             </img>
           </td>
