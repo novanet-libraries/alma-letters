@@ -38,6 +38,7 @@
         <div class="messageArea">
           <div class="messageBody">
             <table role="presentation" cellspacing="0" cellpadding="5" border="0">
+
               <xsl:if test="((notification_data/download_url_local != '' ) or (notification_data/download_url_saml != ''))">
                 <tr>
                   <td>@@to_see_the_resource@@</td>
