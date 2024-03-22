@@ -43,42 +43,50 @@
                 <tr>
                   <td>@@to_see_the_resource@@</td>
                 </tr>
-              </xsl:if>
-              <xsl:if test="notification_data/download_url_saml != ''">
                 <tr>
                   <td>
-                    <xsl:text>@@for_saml_users@@ </xsl:text>
-                    <a>
-                      <xsl:attribute name="href">
-                        <xsl:value-of select="notification_data/download_url_saml"/>
-                      </xsl:attribute>
-                      <xsl:text>@@click_here@@</xsl:text>
-                    </a>
+                    <strong>@@title@@: </strong>
+                    <xsl:value-of select="notification_data/phys_item_display/title"/>
+                    <xsl:if test="normalize-space(notification_data/phys_item_display/author) != ''">
+                      , by <xsl:value-of select="notification_data/phys_item_display/author"/>
+                    </xsl:if>
+                    <xsl:if test="notification_data/phys_item_display/pages"><xsl:text> (pages </xsl:text><xsl:value-of select="notification_data/phys_item_display/pages"/><xsl:text>)</xsl:text></xsl:if>                  
                   </td>
                 </tr>
               </xsl:if>
-              <xsl:if test="notification_data/download_url_local != ''">
-                <tr>
-                  <td>
-                    <xsl:text>@@for_local_users@@ </xsl:text>
-                    <a>
-                      <xsl:attribute name="href">
-                        <xsl:value-of select="notification_data/download_url_local"/>
-                      </xsl:attribute>
-                      <xsl:text>@@click_here@@</xsl:text>
-                    </a>
-                  </td>
-                </tr>
-              </xsl:if>
-                <td>
-                  @@title@@:
-                  <xsl:value-of select="notification_data/phys_item_display/title"/>
-                  <xsl:if test="notification_data/phys_item_display/author">
-                    , by <xsl:value-of select="notification_data/phys_item_display/author"/>
-                  </xsl:if>
-                  <xsl:if test="notification_data/phys_item_display/pages"><xsl:text> (pages </xsl:text><xsl:value-of select="notification_data/phys_item_display/pages"/><xsl:text>)</xsl:text></xsl:if>                  
-                </td>
-              </tr>
+
+              <xsl:choose>
+                <xsl:when test="normalize-space(notification_data/download_url_saml) != '' and normalize-space(notification_data/user_for_printing/identifiers/code_value/value[../code = 'SSO_ID']) != ''">
+                  <tr>
+                    <td>
+                      <xsl:text>@@for_saml_users@@ </xsl:text>
+                      <a>
+                        <xsl:attribute name="href">
+                          <xsl:value-of select="notification_data/download_url_saml"/>
+                        </xsl:attribute>
+                        <xsl:text>@@click_here@@</xsl:text>
+                      </a>
+                    </td>
+                  </tr>
+                </xsl:when>
+                <xsl:when test="normalize-space(notification_data/download_url_local) != ''">
+                  <tr>
+                    <td>
+                      <xsl:text>@@for_local_users@@ </xsl:text>
+                      <a>
+                        <xsl:attribute name="href">
+                          <xsl:value-of select="notification_data/download_url_local"/>
+                        </xsl:attribute>
+                        <xsl:text>@@click_here@@</xsl:text>
+                      </a>
+                    </td>
+                  </tr>
+                </xsl:when>
+                <xsl:otherwise>
+                  <tr><td><xsl:text>There was an error generating the link to the file.  Please contact library staff for assistance, citing Request ID '<xsl:value-of select="notification_data/external_request_id"/>'.</xsl:text></td></tr>
+                </xsl:otherwise>
+              </xsl:choose>
+
               <xsl:choose>
                 <xsl:when test="notification_data/borrowing_document_delivery_max_num_of_views != ''">
                   <tr>
