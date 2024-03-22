@@ -70,14 +70,6 @@
                   </td>
                 </tr>
               </xsl:if>
-              <tr>
-                <td>
-                  <xsl:text>@@your_request@@ </xsl:text>
-                  <xsl:value-of select="notification_data/resource_sharing_request/item_arrival_date"/>
-                  <xsl:text>.</xsl:text>
-                </td>
-              </tr>
-              <tr>
                 <td>
                   @@title@@:
                   <xsl:value-of select="notification_data/phys_item_display/title"/>
