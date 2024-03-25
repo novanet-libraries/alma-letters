@@ -107,13 +107,13 @@
                   <xsl:value-of select="notification_data/phone"/>
                 </td>
               </tr>
-              <xsl:if test="notification_data/incoming_request/needed_by_dummy/full_date">
               <tr>
                 <td>
                   <!-- line spacer -->
                   &#160;
                 </td>
               </tr>
+              <xsl:if test="notification_data/incoming_request/needed_by">
                 <tr>
                   <td>
                     <b>@@date_needed_by@@: </b>
