@@ -7,6 +7,18 @@
   <xsl:include href="footer.xsl"/>
   <xsl:include href="style.xsl"/>
   <xsl:include href="recordTitle.xsl"/>
+
+  <xsl:template name="print-row-if-data-exists">
+    <xsl:param name="data"/>
+    <xsl:if test="normalize-space($data) != ''">
+      <tr>
+        <td>
+          <xsl:value-of select="$data"/>
+        </td>
+      </tr>
+    </xsl:if>
+  </xsl:template>
+
   <xsl:template match="/">
     <html>
       <head>
@@ -21,7 +33,7 @@
         <!-- header.xsl -->
         <div class="messageArea">
           <div class="messageBody">
-            <table cellspacing="0" cellpadding="5" border="0">
+            <table cellspacing="0" cellpadding="0" border="0">
               <tr>
                 <td>
                   <b>@@supplied_to@@: </b>
@@ -33,59 +45,50 @@
                   <b>@@shipping_address@@: </b>
                 </td>
               </tr>
-              <xsl:if test="notification_data/incoming_request/borrowing_institution!=''">
-                <tr>
-                  <td>
-                    <xsl:value-of select="notification_data/incoming_request/borrowing_institution"/>
-                  </td>
-                </tr>
-              </xsl:if>
-              <xsl:if test="notification_data/incoming_request/borrowing_library!=''">
-                <tr>
-                  <td>
-                    <xsl:value-of select="notification_data/incoming_request/borrowing_library"/>
-                  </td>
-                </tr>
-              </xsl:if>
-              <xsl:for-each select="notification_data/partner_shipping_info_list/partner_shipping_info">
-                <br/>
-                <table cellspacing="0" cellpadding="5" border="0">
-                  <xsl:attribute name="style">
-                    <xsl:call-template name="listStyleCss"/>
-                    <!-- style.xsl -->
-                  </xsl:attribute>
-                  <tr>
-                    <td>
-                      <xsl:value-of select="address1"/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <xsl:value-of select="address2"/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <xsl:value-of select="address4"/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <xsl:value-of select="address5"/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <xsl:value-of select="city"/>&#160;<xsl:value-of select="postal_code"/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <xsl:value-of select="state"/>&#160;<xsl:value-of select="country"/>
-                    </td>
-                  </tr>
-                </table>
-              </xsl:for-each>
+              <tr>
+                <td>
+                  <table cellspacing="0" cellpadding="0" border="0">
+                    <xsl:attribute name="style">
+                      <xsl:call-template name="listStyleCss"/>
+                    </xsl:attribute>
+                    <xsl:call-template name="print-row-if-data-exists">
+                      <xsl:with-param name="data" select="notification_data/incoming_request/borrowing_institution"/>
+                    </xsl:call-template>
+                    <xsl:call-template name="print-row-if-data-exists">
+                      <xsl:with-param name="data" select="notification_data/incoming_request/borrowing_library"/>
+                    </xsl:call-template>
+                    <xsl:call-template name="print-row-if-data-exists">
+                      <xsl:with-param name="data" select="notification_data/partner_shipping_info_list/partner_shipping_info/address1"/>
+                    </xsl:call-template>
+                    <xsl:call-template name="print-row-if-data-exists">
+                      <xsl:with-param name="data" select="notification_data/partner_shipping_info_list/partner_shipping_info/address2"/>
+                    </xsl:call-template>
+                    <xsl:call-template name="print-row-if-data-exists">
+                      <xsl:with-param name="data" select="notification_data/partner_shipping_info_list/partner_shipping_info/address3"/>
+                    </xsl:call-template>
+                    <xsl:call-template name="print-row-if-data-exists">
+                      <xsl:with-param name="data" select="notification_data/partner_shipping_info_list/partner_shipping_info/address4"/>
+                    </xsl:call-template>
+                    <xsl:call-template name="print-row-if-data-exists">
+                      <xsl:with-param name="data" select="notification_data/partner_shipping_info_list/partner_shipping_info/address5"/>
+                    </xsl:call-template>
+                    <tr>
+                      <td>
+                        <xsl:value-of select="notification_data/partner_shipping_info_list/partner_shipping_info/city"/>
+                        <xsl:text>&#160;</xsl:text>
+                        <xsl:value-of select="notification_data/partner_shipping_info_list/partner_shipping_info/postal_code"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <xsl:value-of select="notification_data/partner_shipping_info_list/partner_shipping_info/state"/>
+                        <xsl:text>&#160;</xsl:text>
+                        <xsl:value-of select="notification_data/partner_shipping_info_list/partner_shipping_info/country"/>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
               <tr>
                 <td>
                   <b>@@email@@: </b>
