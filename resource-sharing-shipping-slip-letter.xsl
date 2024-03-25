@@ -91,6 +91,12 @@
               </tr>
               <tr>
                 <td>
+                  <!-- line spacer -->
+                  &#160;
+                </td>
+              </tr>
+              <tr>
+                <td>
                   <b>@@email@@: </b>
                   <xsl:value-of select="notification_data/email"/>
                 </td>
@@ -102,6 +108,12 @@
                 </td>
               </tr>
               <xsl:if test="notification_data/incoming_request/needed_by_dummy/full_date">
+              <tr>
+                <td>
+                  <!-- line spacer -->
+                  &#160;
+                </td>
+              </tr>
                 <tr>
                   <td>
                     <b>@@date_needed_by@@: </b>
