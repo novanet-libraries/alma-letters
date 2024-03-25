@@ -72,7 +72,7 @@ background-color: #0075b0; padding: 0.4em; margin-top: 0.8em; border-radius: 0.2
   <xsl:if test="normalize-space($barcode) != ''">
     <xsl:text>&#160;</xsl:text>
     <span>
-      <xsl:attribute name="style">vertical-align:middle;line-height:2.5em;font-family:'CarolinaBar-B39-2.5-22x158x720',Code39,monospace</xsl:attribute>
+      <xsl:attribute name="style">vertical-align:middle;line-height:2.5em;font-family:'Libre Barcode 39 Extended Text','CarolinaBar-B39-2.5-22x158x720',Code39,'Bar-Code 39',monospace</xsl:attribute>
       <xsl:value-of select="normalize-space($barcode)"/>
     </span>
     <xsl:text>&#160;</xsl:text>
