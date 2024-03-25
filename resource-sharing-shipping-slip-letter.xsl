@@ -7,33 +7,6 @@
   <xsl:include href="footer.xsl"/>
   <xsl:include href="style.xsl"/>
   <xsl:include href="recordTitle.xsl"/>
-  <xsl:template name="id-info">
-    <xsl:param name="line"/>
-    <xsl:variable name="first" select="substring-before($line,'//')"/>
-    <xsl:variable name="rest" select="substring-after($line,'//')"/>
-    <xsl:if test="$first = '' and $rest = '' ">
-      <!--br/-->
-    </xsl:if>
-    <xsl:if test="$rest != ''">
-      <xsl:value-of select="$rest"/>
-      <br/>
-    </xsl:if>
-    <xsl:if test="$rest = ''">
-      <xsl:value-of select="$line"/>
-      <br/>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template name="id-info-hdr">
-    <xsl:call-template name="id-info">
-      <xsl:if test="notification_data/incoming_request/rapidr_external_request_id!=''">
-        <xsl:with-param name="line" select="notification_data/incoming_request/external_request_id"/>
-      </xsl:if>
-      <xsl:if test="notification_data/incoming_request/rapidr_external_request_id=''">
-        <xsl:with-param name="line" select="notification_data/incoming_request/external_request_id"/>
-      </xsl:if>
-      <xsl:with-param name="label" select="'Bibliographic Information:'"/>
-    </xsl:call-template>
-  </xsl:template>
   <xsl:template match="/">
     <html>
       <head>
@@ -125,42 +98,6 @@
                   <xsl:value-of select="notification_data/phone"/>
                 </td>
               </tr>
-              <tr/>
-              <tr/>
-              <tr>
-                <td>
-                  <b>@@borrower_reference@@: </b>
-                  <xsl:call-template name="id-info-hdr"/>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <b>@@my_id@@: </b>
-                  <img src="externalId.png" alt="externalId"/>
-                </td>
-              </tr>
-              <xsl:if test="notification_data/qualifier != ''">
-                <tr>
-                  <td>
-                    <b>@@qualifier@@: </b>
-                    <img src="qualifier.png" alt="qualifier"/>
-                  </td>
-                </tr>
-              </xsl:if>
-              <xsl:if test="notification_data/group_qualifier != ''">
-                <tr>
-                  <td>
-                    <b>@@group_qualifier@@: </b>
-                    <img src="group_qualifier.png" alt="group_qualifier"/>
-                  </td>
-                </tr>
-              </xsl:if>
-              <tr>
-                <td>
-                  <b>@@format@@: </b>
-                  <xsl:value-of select="notification_data/incoming_request/format"/>
-                </td>
-              </tr>
               <xsl:if test="notification_data/incoming_request/needed_by_dummy/full_date">
                 <tr>
                   <td>
@@ -177,66 +114,13 @@
                   </td>
                 </tr>
               </xsl:if>
-              <xsl:if test="notification_data/incoming_request/requester_email">
-                <tr>
-                  <td>
-                    <b>@@requester_email@@: </b>
-                    <xsl:value-of select="notification_data/incoming_request/requester_email"/>
-                  </td>
-                </tr>
-              </xsl:if>
-              <xsl:if test="notification_data/assignee != ''">
-                <tr>
-                  <td>
-                    <b>@@assignee@@: </b>
-                    <xsl:value-of select="notification_data/assignee"/>
-                  </td>
-                </tr>
-              </xsl:if>
               <xsl:if test="notification_data/item">
-                <br/>
                 <tr>
                   <td>
                     <b>@@item_barcode@@: </b>
                     <img src="Barcode1.png" alt="Barcode1"/>
                   </td>
                 </tr>
-                <tr>
-                  <td>
-                    <xsl:value-of select="notification_data/item/title"/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <b>@@library@@: </b>
-                    <xsl:value-of select="notification_data/item/library_name"/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <b>@@location@@: </b>
-                    <xsl:value-of select="notification_data/item/location_name"/>
-                  </td>
-                </tr>
-                <xsl:if test="call_number">
-                  <tr>
-                    <td>
-                      <b>@@call_number@@: </b>
-                      <xsl:value-of select="notification_data/item/call_number"/>
-                    </td>
-                  </tr>
-                </xsl:if>
-                <xsl:if test="shelving_location/string">
-                  <tr>
-                    <td>
-                      <b>@@shelving_location_for_item@@: </b>
-                      <xsl:for-each select="shelving_location/string">
-                        <xsl:value-of select="."/>
-									 &#160;
-									 </xsl:for-each>
-                    </td>
-                  </tr>
-                </xsl:if>
               </xsl:if>
               <tr>
                 <td>
