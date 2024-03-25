@@ -67,4 +67,16 @@ background-color: #0075b0; padding: 0.4em; margin-top: 0.8em; border-radius: 0.2
   </xsl:choose>
 </xsl:template>
 
+<xsl:template name="scannable-barcode">
+  <xsl:param name="barcode" select=""/>
+  <xsl:if test="normalize-space($barcode) != ''">
+    <xsl:text>&#160;</xsl:text>
+    <span>
+      <xsl:attribute name="style">vertical-align:middle;line-height:2.5em;font-family:'CarolinaBar-B39-2.5-22x158x720',Code39,monospace</xsl:attribute>
+      <xsl:value-of select="normalize-space($barcode)"/>
+    </span>
+    <xsl:text>&#160;</xsl:text>
+  </xsl:if>
+</xsl:template>
+
 </xsl:stylesheet>
