@@ -121,7 +121,7 @@
                 <tr>
                   <td>
                     <b>@@item_barcode@@: </b>
-                     <xsl:call-template name="scannable-barcode">
+                    <xsl:call-template name="scannable-barcode">
                       <xsl:with-param name="barcode" select="notification_data/item/barcode"/>
                     </xsl:call-template>
                   </td>
