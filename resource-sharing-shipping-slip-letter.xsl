@@ -118,7 +118,9 @@
                 <tr>
                   <td>
                     <b>@@item_barcode@@: </b>
-                    <img src="Barcode1.png" alt="Barcode1"/>
+                     <xsl:call-template name="scannable-barcode">
+                      <xsl:with-param name="barcode" select="notification_data/item/barcode"/>
+                    </xsl:call-template>
                   </td>
                 </tr>
               </xsl:if>
