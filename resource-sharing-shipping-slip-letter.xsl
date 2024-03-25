@@ -113,6 +113,14 @@
                   &#160;
                 </td>
               </tr>
+              <xsl:if test="notification_data/incoming_request/create_date">
+                <tr>
+                  <td>
+                    <b>Request Date: </b>
+                    <xsl:value-of select="notification_data/incoming_request/create_date"/>
+                  </td>
+                </tr>
+              </xsl:if>
               <xsl:if test="notification_data/incoming_request/needed_by">
                 <tr>
                   <td>
