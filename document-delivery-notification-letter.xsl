@@ -87,7 +87,9 @@
                 <xsl:otherwise>
                   <tr>
                     <td>
-                      <xsl:text>You should be able to access the file via the 'My Account' link below.  If you have any issues, please contact library staff for assistance, citing Request ID '<xsl:value-of select="notification_data/external_request_id"/>'.</xsl:text>
+                      <xsl:text>You should be able to access the file via the 'My Account' link below.  If you have any issues, please contact library staff for assistance, citing Request ID '</xsl:text>
+                      <xsl:value-of select="notification_data/external_request_id"/>
+                      <xsl:text>'.</xsl:text>
                     </td>
                   </tr>
                 </xsl:otherwise>
