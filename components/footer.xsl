@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- de-activate / empty a built-in template -->
   <xsl:template name="salutation"/>
+
+  <!-- bottom bar that identifies the library -->
   <xsl:template name="lastFooter">
     <table>
       <xsl:attribute name="style">
@@ -20,7 +24,10 @@
       </tr>
     </table>
   </xsl:template>
+
+  <!-- de-activate / empty a built-in template -->
   <xsl:template name="contactUs"/>
+
   <xsl:template name="myAccount">
     <table align="left" style="margin-top:1em;">
       <tr>
