@@ -59,4 +59,14 @@
       </tr>
     </table>
   </xsl:template>
+
+  <!-- library-specific info for non-patron facing letters (e.g. slips) -->
+  <xsl:template name="slipFooter">
+    <xsl:if test="notification_data/general_data/letter_type">
+      <div>
+        <xsl:value-of select="notification_data/general_data/letter_type"/>
+      </div>
+    </xsl:if>
+  </xsl:template>
+
 </xsl:stylesheet>
