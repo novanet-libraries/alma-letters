@@ -88,16 +88,19 @@
             </tr>
           </xsl:if>
         </table>
-        <br/>
+
+        
         <table role='presentation'>
-          <tr>
-            <td>@@sincerely@@</td>
-          </tr>
+          <!-- co-opting the 'department' label for a "this might be in a temporary location" message -->
           <tr>
             <td>@@department@@</td>
           </tr>
+          <tr>
+            <td>@@sincerely@@</td>
+          </tr>
         </table>
         <xsl:call-template name="lastFooter"/>
+        <xsl:call-template name="myAccount"/>
       </body>
     </html>
   </xsl:template>
