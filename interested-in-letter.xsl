@@ -29,84 +29,54 @@
 					@@You_were_specify@@:
 				<br/>
         <table role='presentation' cellspacing="0" cellpadding="5" border="0">
-          <tr>
-            <td>
-              <br/>
-				@@orderNumber@@	:
-
-						<br/>
-            </td>
-            <td>
-              <br/>
-              <xsl:value-of select="notification_data/line_number"/>
-              <br/>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <br/>
-				@@title@@ :
-
-						<br/>
-            </td>
-            <td>
-              <br/>
-              <xsl:value-of select="notification_data/title"/>
-              <br/>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <br/>
-				@@mmsId@@ :
-
-						<br/>
-            </td>
-            <td>
-              <br/>
-              <xsl:value-of select="notification_data/mms_id"/>
-              <br/>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <br/>
-				@@callNumber@@	:
-
-						<br/>
-            </td>
-            <td>
-              <br/>
-              <xsl:value-of select="notification_data/poline_inventory/call_number"/>
-              <br/>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <br/>
-				@@receivingNote@@ :
-
-						<br/>
-            </td>
-            <td>
-              <br/>
-              <xsl:value-of select="notification_data/receiving_note"/>
-              <br/>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <br/>
-				@@message@@	:
-
-						<br/>
-            </td>
-            <td>
-              <br/>
-              <xsl:value-of select="notification_data/message"/>
-              <br/>
-            </td>
-          </tr>
+          <xsl:if test="notification_data/line_number">
+            <tr>
+              <td>@@orderNumber@@ : </td>
+              <td>
+                <xsl:value-of select="notification_data/line_number"/>
+              </td>
+            </tr>
+          </xsl:if>
+          <xsl:if test="notification_data/title">
+            <tr>
+              <td>@@title@@ : </td>
+              <td>
+                <xsl:value-of select="notification_data/title"/>
+              </td>
+            </tr>
+          </xsl:if>
+          <xsl:if test="notification_data/mms_id">
+            <tr>
+              <td>@@mmsId@@ : </td>
+              <td>
+                <xsl:value-of select="notification_data/mms_id"/>
+              </td>
+            </tr>
+          </xsl:if>
+          <xsl:if test="notification_data/poline_inventory/call_number">
+            <tr>
+              <td>@@callNumber@@ : </td>
+              <td>
+                <xsl:value-of select="notification_data/poline_inventory/call_number"/>
+              </td>
+            </tr>
+          </xsl:if>
+          <xsl:if test="notification_data/receiving_note">
+            <tr>
+              <td>@@receivingNote@@ : </td>
+              <td>
+                <xsl:value-of select="notification_data/receiving_note"/>
+              </td>
+            </tr>
+          </xsl:if>
+          <xsl:if test="notification_data/message">
+            <tr>
+              <td>@@message@@ : </td>
+              <td>
+                <xsl:value-of select="notification_data/message"/>
+              </td>
+            </tr>
+          </xsl:if>
         </table>
         <br/>
         <table role='presentation'>
