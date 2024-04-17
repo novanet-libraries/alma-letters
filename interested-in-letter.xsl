@@ -37,15 +37,25 @@
               </td>
             </tr>
           </xsl:if>
-          <xsl:if test="notification_data/title">
-            <tr>
-              <td>@@title@@</td>
-              <td>
-                <xsl:value-of select="notification_data/title"/>
-              </td>
-            </tr>
-          </xsl:if>
-          <xsl:if test="notification_data/mms_id">
+          <xsl:choose>
+            <xsl:when test="normalize-space(notification_data/bib_title) != ''">
+              <tr>
+                <td>@@title@@</td>
+                <td>
+                  <xsl:value-of select="notification_data/bib_title"/>
+                </td>
+              </tr>
+            </xsl:when>
+            <xsl:when test="normalize-space(notification_data/title) != ''">
+              <tr>
+                <td>@@title@@</td>
+                <td>
+                  <xsl:value-of select="notification_data/title"/>
+                </td>
+              </tr>
+            </xsl:when>
+          </xsl:choose>
+          <xsl:if test="normalize-space(notification_data/mms_id) != ''">
             <tr>
               <td>@@mmsId@@</td>
               <td>
