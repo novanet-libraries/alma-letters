@@ -26,8 +26,8 @@
         <xsl:call-template name="senderReceiver"/>
         <br/>
         <xsl:call-template name="toWhomIsConcerned"/>
-					@@You_were_specify@@:
-				<br/>
+        <xsl:text>@@You_were_specify@@</xsl:text>
+        <br/>
         <table role='presentation' cellspacing="0" cellpadding="5" border="0">
           <xsl:if test="notification_data/line_number">
             <tr>
