@@ -31,7 +31,7 @@
         <table role='presentation' cellspacing="0" cellpadding="5" border="0">
           <xsl:if test="notification_data/line_number">
             <tr>
-              <td>@@orderNumber@@ : </td>
+              <td>@@orderNumber@@</td>
               <td>
                 <xsl:value-of select="notification_data/line_number"/>
               </td>
@@ -39,7 +39,7 @@
           </xsl:if>
           <xsl:if test="notification_data/title">
             <tr>
-              <td>@@title@@ : </td>
+              <td>@@title@@</td>
               <td>
                 <xsl:value-of select="notification_data/title"/>
               </td>
@@ -47,7 +47,7 @@
           </xsl:if>
           <xsl:if test="notification_data/mms_id">
             <tr>
-              <td>@@mmsId@@ : </td>
+              <td>@@mmsId@@</td>
               <td>
                 <xsl:value-of select="notification_data/mms_id"/>
               </td>
@@ -55,7 +55,7 @@
           </xsl:if>
           <xsl:if test="notification_data/poline_inventory/call_number">
             <tr>
-              <td>@@callNumber@@ : </td>
+              <td>@@callNumber@@</td>
               <td>
                 <xsl:value-of select="notification_data/poline_inventory/call_number"/>
               </td>
@@ -63,7 +63,7 @@
           </xsl:if>
           <xsl:if test="notification_data/receiving_note">
             <tr>
-              <td>@@receivingNote@@ : </td>
+              <td>@@receivingNote@@</td>
               <td>
                 <xsl:value-of select="notification_data/receiving_note"/>
               </td>
@@ -71,7 +71,7 @@
           </xsl:if>
           <xsl:if test="notification_data/message">
             <tr>
-              <td>@@message@@ : </td>
+              <td>@@message@@</td>
               <td>
                 <xsl:value-of select="notification_data/message"/>
               </td>
