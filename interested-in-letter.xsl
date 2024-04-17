@@ -29,7 +29,7 @@
         <xsl:text>@@You_were_specify@@</xsl:text>
         <br/>
         <table role='presentation' cellspacing="0" cellpadding="5" border="0">
-          <xsl:if test="notification_data/line_number">
+          <xsl:if test="normalize-space(notification_data/line_number) != ''">
             <tr>
               <td>@@orderNumber@@</td>
               <td>
@@ -53,7 +53,7 @@
               </td>
             </tr>
           </xsl:if>
-          <xsl:if test="notification_data/poline_inventory/call_number">
+          <xsl:if test="normalize-space(notification_data/poline_inventory/call_number) != ''">
             <tr>
               <td>@@callNumber@@</td>
               <td>
@@ -61,7 +61,7 @@
               </td>
             </tr>
           </xsl:if>
-          <xsl:if test="notification_data/receiving_note">
+          <xsl:if test="normalize-space(notification_data/receiving_note) != ''">
             <tr>
               <td>@@receivingNote@@</td>
               <td>
@@ -69,7 +69,7 @@
               </td>
             </tr>
           </xsl:if>
-          <xsl:if test="notification_data/message">
+          <xsl:if test="normalize-space(notification_data/message) != ''">
             <tr>
               <td>@@message@@</td>
               <td>
