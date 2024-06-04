@@ -90,6 +90,16 @@
               </tr>
               <tr>
                 <td>
+                  <strong> Preferred Pickup Location: </strong>
+                  <xsl:value-of select="notification_data/request/preferred_pickup_institution"/>
+                  <xsl:text> / </xsl:text>
+                  <xsl:value-of select="notification_data/request/preferred_pickup_location"/>
+                  <xsl:text> / </xsl:text>
+                  <xsl:value-of select="notification_data/request/preferred_pickup_location_str"/>
+                </td>
+              </tr>
+              <tr>
+                <td>
                   <strong> @@circulation_note@@: </strong>
                   <xsl:value-of select="notification_data/circulation_note"/>
                 </td>
