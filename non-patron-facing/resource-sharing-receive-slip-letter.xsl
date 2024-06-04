@@ -116,67 +116,6 @@
                 </tr>
               </xsl:if>
             </table>
-            <br/>
-            <br/>
-            <table role='presentation'>
-              <tr>
-                <td>@@signature@@</td>
-              </tr>
-              <tr>
-                <td>
-                  <xsl:value-of select="notification_data/library/name"/>
-                </td>
-              </tr>
-              <xsl:if test="notification_data/library/address/line1 !=''">
-                <tr>
-                  <td>
-                    <xsl:value-of select="notification_data/library/address/line1"/>
-                  </td>
-                </tr>
-              </xsl:if>
-              <xsl:if test="notification_data/library/address/line2 !=''">
-                <tr>
-                  <td>
-                    <xsl:value-of select="notification_data/library/address/line2"/>
-                  </td>
-                </tr>
-              </xsl:if>
-              <xsl:if test="notification_data/library/address/line3 !=''">
-                <tr>
-                  <td>
-                    <xsl:value-of select="notification_data/library/address/line3"/>
-                  </td>
-                </tr>
-              </xsl:if>
-              <xsl:if test="notification_data/library/address/line4 !=''">
-                <tr>
-                  <td>
-                    <xsl:value-of select="notification_data/library/address/line4"/>
-                  </td>
-                </tr>
-              </xsl:if>
-              <xsl:if test="notification_data/library/address/line5 !=''">
-                <tr>
-                  <td>
-                    <xsl:value-of select="notification_data/library/address/line5"/>
-                  </td>
-                </tr>
-              </xsl:if>
-              <xsl:if test="notification_data/library/address/city !=''">
-                <tr>
-                  <td>
-                    <xsl:value-of select="notification_data/library/address/city"/>
-                  </td>
-                </tr>
-              </xsl:if>
-              <xsl:if test="notification_data/library/address/country !=''">
-                <tr>
-                  <td>
-                    <xsl:value-of select="notification_data/library/address/country"/>
-                  </td>
-                </tr>
-              </xsl:if>
-            </table>
           </div>
         </div>
         <xsl:call-template name="lastFooter"/>
