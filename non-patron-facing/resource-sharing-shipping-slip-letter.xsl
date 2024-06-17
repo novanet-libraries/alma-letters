@@ -186,7 +186,7 @@
           </div>
         </div>
         <xsl:call-template name="lastFooter"/>
-        <xsl:call-template name="slipFooter"/>
+<!--        <xsl:call-template name="slipFooter"/> -->
       </body>
     </html>
   </xsl:template>
