@@ -66,6 +66,9 @@
                   <br/>
                   <strong> @@patron_name@@: </strong>
                   <xsl:value-of select="notification_data/patron_name"/>
+                  <xsl:text> ( </xsl:text>
+                  <xsl:value-of select="notification_data/patron_username"/>
+                  <xsl:text> ) </xsl:text>
                 </td>
               </tr>
               <tr>
