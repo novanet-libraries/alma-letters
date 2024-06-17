@@ -151,7 +151,7 @@
                 <tr>
                   <td>
                     <b>@@external_identifier@@: </b>
-                    <xsl-call-template name="scannable-barcode">
+                    <xsl:call-template name="scannable-barcode">
                       <xsl:with-param name="barcode" select="notification_data/incoming_request/external_request_id"/>
                     </xsl:call-template>
                   </td>
