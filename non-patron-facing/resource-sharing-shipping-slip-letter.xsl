@@ -123,6 +123,14 @@
                   </td>
                 </tr>
               </xsl:if>
+              <xsl:if test="notification_data/incoming_request/create_date">
+                <tr>
+                  <td>
+                    <b>Print Date: </b>
+                    <xsl:value-of select="notification_data/general_data/current_date"/>
+                  </td>
+                </tr>
+              </xsl:if>
               <xsl:if test="notification_data/incoming_request/needed_by">
                 <tr>
                   <td>
@@ -136,6 +144,16 @@
                   <td>
                     <b>@@request_note@@: </b>
                     <xsl:value-of select="notification_data/incoming_request/note"/>
+                  </td>
+                </tr>
+              </xsl:if>
+              <xsl:if test="notification_data/incoming_request/external_request_id">
+                <tr>
+                  <td>
+                    <b>@@external_identifier@@: </b>
+                    <xsl-call-template name="scannable-barcode">
+                      <xsl:with-param name="barcode" select="notification_data/incoming_request/external_request_id"/>
+                    </xsl:call-template>
                   </td>
                 </tr>
               </xsl:if>
