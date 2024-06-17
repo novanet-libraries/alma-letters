@@ -172,13 +172,13 @@
                   <b>@@title@@: </b>
                   <xsl:value-of select="notification_data/metadata/title"/>
                                   &#160;
-                                <b>@@author@@: </b>
+                                <br/><b>@@author@@: </b>
                   <xsl:value-of select="notification_data/metadata/author"/>
                                   &#160;
-             	                <b>@@volume@@: </b>
+             	                <br/><b>@@volume@@: </b>
                   <xsl:value-of select="notification_data/metadata/volume"/>
 			                      &#160;
-			                    <b>@@issue@@: </b>
+			                    <br/><b>@@issue@@: </b>
                   <xsl:value-of select="notification_data/metadata/issue"/>
                 </td>
               </tr>
