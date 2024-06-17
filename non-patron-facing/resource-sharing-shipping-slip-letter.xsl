@@ -44,7 +44,7 @@
               </tr>
               <tr>
                 <td>
-                  <b>@@shipping_address@@: </b>
+                  <p><b>@@shipping_address@@: </b></p>
                 </td>
               </tr>
               <tr>
