@@ -25,10 +25,6 @@
         <xsl:call-template name="generalStyle"/>
       </head>
       <body>
-        <xsl:attribute name="style">
-          <xsl:call-template name="bodyStyleCss"/>
-          <!-- style.xsl -->
-        </xsl:attribute>
         <xsl:call-template name="head"/>
         <!-- header.xsl -->
         <div class="messageArea">
