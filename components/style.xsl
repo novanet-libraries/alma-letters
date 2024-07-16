@@ -43,6 +43,29 @@ background-color:#444;  width:100%; text-shadow:1px 1px 1px #333; color:#fff; ma
 background-color: #0075b0; padding: 0.4em; margin-top: 0.8em; border-radius: 0.2em; color: white; text-shadow:1px 1px 1px #333; box-shadow: 1px 1px 1px #00428c;
 </xsl:template>
 
+
+<!-- what follows are utilities used in several letters -->
+
+<xsl:template name="print-row-if-data-exists">
+  <xsl:param name="data"/>
+  <xsl:param name="label"/>
+  
+  <xsl:if test="normalize-space($data) != ''">
+    <tr>
+      <xsl:if test="normalize-space($label) != ''">
+        <td>
+          <strong>
+            <xsl:value-of select="normalize-space($label)"/>
+          </strong>
+        </td>
+      </xsl:if>
+      <td>
+        <xsl:value-of select="normalize-space($data)"/>
+      </td>
+    </tr>
+  </xsl:if>
+</xsl:template>
+  
 <xsl:template name="yyyymmdd">
   <xsl:param name="inputDate"/>
 

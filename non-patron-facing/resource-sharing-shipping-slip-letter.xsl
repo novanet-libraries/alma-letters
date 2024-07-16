@@ -8,17 +8,6 @@
   <xsl:include href="style.xsl"/>
   <xsl:include href="recordTitle.xsl"/>
 
-  <xsl:template name="print-row-if-data-exists">
-    <xsl:param name="data"/>
-    <xsl:if test="normalize-space($data) != ''">
-      <tr>
-        <td>
-          <xsl:value-of select="$data"/>
-        </td>
-      </tr>
-    </xsl:if>
-  </xsl:template>
-
   <xsl:template match="/">
     <html>
       <head>
