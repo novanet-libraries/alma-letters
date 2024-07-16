@@ -52,14 +52,13 @@ background-color: #0075b0; padding: 0.4em; margin-top: 0.8em; border-radius: 0.2
   
   <xsl:if test="normalize-space($data) != ''">
     <tr>
-      <xsl:if test="normalize-space($label) != ''">
-        <td>
+      <td>
+        <xsl:if test="normalize-space($label) != ''">
           <strong>
             <xsl:value-of select="normalize-space($label)"/>
+            <xsl:text>:&#160;</xsl:text>
           </strong>
-        </td>
-      </xsl:if>
-      <td>
+        </xsl:if>
         <xsl:value-of select="normalize-space($data)"/>
       </td>
     </tr>
