@@ -7,7 +7,6 @@
   <xsl:include href="footer.xsl"/>
   <xsl:include href="style.xsl"/>
   <xsl:include href="recordTitle.xsl"/>
-
   <xsl:template match="/">
     <html>
       <head>
@@ -87,15 +86,19 @@
                   </td>
                 </tr>
               </xsl:if>
-
+            </table>
+            <p>
+              <strong>Bibliographic Data:</strong>
+            </p>
+            <table cellspacing="0" cellpadding="2" border="0">
               <xsl:call-template name="print-row-if-data-exists">
                 <xsl:with-param name="label">@@author@@</xsl:with-param>
                 <xsl:with-param name="data" select="notification_data/metadata/author"/>
-              </xsl:call-template> 
+              </xsl:call-template>
               <xsl:call-template name="print-row-if-data-exists">
                 <xsl:with-param name="label">@@title@@</xsl:with-param>
                 <xsl:with-param name="data" select="notification_data/metadata/title"/>
-              </xsl:call-template>             
+              </xsl:call-template>
               <xsl:call-template name="print-row-if-data-exists">
                 <xsl:with-param name="label">@@journal_title@@</xsl:with-param>
                 <xsl:with-param name="data" select="notification_data/metadata/journal_title"/>
@@ -128,7 +131,6 @@
                 <xsl:with-param name="label">@@pages@@</xsl:with-param>
                 <xsl:with-param name="data" select="notification_data/metadata/pages"/>
               </xsl:call-template>
-
               <xsl:call-template name="print-row-if-data-exists">
                 <xsl:with-param name="label">@@call_number@@</xsl:with-param>
                 <xsl:with-param name="data" select="notification_data/metadata/call_number"/>
@@ -137,7 +139,6 @@
                 <xsl:with-param name="label">@@barcode@@</xsl:with-param>
                 <xsl:with-param name="data" select="notification_data/metadata/barcode"/>
               </xsl:call-template>
-              
             </table>
           </div>
         </div>
