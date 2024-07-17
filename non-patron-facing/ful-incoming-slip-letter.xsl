@@ -131,15 +131,56 @@
                 <xsl:with-param name="label">@@pages@@</xsl:with-param>
                 <xsl:with-param name="data" select="notification_data/metadata/pages"/>
               </xsl:call-template>
-              <xsl:call-template name="print-row-if-data-exists">
-                <xsl:with-param name="label">@@call_number@@</xsl:with-param>
-                <xsl:with-param name="data" select="notification_data/metadata/call_number"/>
-              </xsl:call-template>
-              <xsl:call-template name="print-row-if-data-exists">
-                <xsl:with-param name="label">@@barcode@@</xsl:with-param>
-                <xsl:with-param name="data" select="notification_data/metadata/barcode"/>
-              </xsl:call-template>
             </table>
+            <xsl:for-each select="notification_data/items/physical_item_display_for_printing">
+              <p>
+                <strong>Physical Item Data:</strong>
+              </p>
+              <table cellspacing="0" cellpadding="2" border="0">
+                <tr>
+                  <td>
+                    <b>@@item_barcode@@: </b>
+                    <img src="cid:{concat(concat('Barcode',position()),'.png')}" alt="{concat('Barcode',position())}"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <xsl:value-of select="title"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>@@library@@: </b>
+                    <xsl:value-of select="library_name"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>@@location@@: </b>
+                    <xsl:value-of select="location_name"/>
+                  </td>
+                </tr>
+                <xsl:if test="call_number">
+                  <tr>
+                    <td>
+                      <b>@@call_number@@: </b>
+                      <xsl:value-of select="call_number"/>
+                    </td>
+                  </tr>
+                </xsl:if>
+                <xsl:if test="shelving_location/string">
+                  <tr>
+                    <td>
+                      <b>@@shelving_location_for_item@@: </b>
+                      <xsl:for-each select="shelving_location/string">
+                        <xsl:value-of select="."/>
+                        &#160;
+                      </xsl:for-each>
+                    </td>
+                  </tr>
+                </xsl:if>
+              </table>
+            </xsl:for-each>
           </div>
         </div>
         <xsl:call-template name="lastFooter"/>
