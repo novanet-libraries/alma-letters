@@ -96,7 +96,7 @@
                 <xsl:with-param name="data" select="notification_data/metadata/author"/>
               </xsl:call-template>
               <xsl:call-template name="print-row-if-data-exists">
-                <xsl:with-param name="label">@@title@@</xsl:with-param>
+                <xsl:with-param name="label">Title</xsl:with-param>
                 <xsl:with-param name="data" select="notification_data/metadata/title"/>
               </xsl:call-template>
               <xsl:call-template name="print-row-if-data-exists">
