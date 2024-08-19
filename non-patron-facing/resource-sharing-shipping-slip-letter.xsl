@@ -14,6 +14,12 @@
         <xsl:call-template name="generalStyle"/>
       </head>
       <body>
+        <!--
+        <xsl:attribute name="style">
+          <xsl:call-template name="bodyStyleCss"/>
+        </xsl:attribute>
+        -->
+        <xsl:attribute name="style">margin:0;padding:0;color:#333;font-family:arial,sans-serif;font-size:120%</xsl:attribute>        
         <xsl:call-template name="head"/>
         <!-- header.xsl -->
         <div class="messageArea">
@@ -136,6 +142,7 @@
                     <b>@@external_identifier@@: </b>
                     <xsl:call-template name="scannable-barcode">
                       <xsl:with-param name="barcode" select="notification_data/incoming_request/external_request_id"/>
+                      <xsl:with-param name="imgname" select="'cid:externalId.png'"/>
                     </xsl:call-template>
                   </td>
                 </tr>
@@ -146,6 +153,7 @@
                     <b>@@item_barcode@@: </b>
                     <xsl:call-template name="scannable-barcode">
                       <xsl:with-param name="barcode" select="notification_data/item/barcode"/>
+                      <xsl:with-param name="imgname" select="'cid:Barcode1.png'"/>
                     </xsl:call-template>
                   </td>
                 </tr>

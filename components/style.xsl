@@ -91,14 +91,38 @@ background-color: #0075b0; padding: 0.4em; margin-top: 0.8em; border-radius: 0.2
 
 <xsl:template name="scannable-barcode">
   <xsl:param name="barcode" select=""/>
-  <xsl:if test="normalize-space($barcode) != ''">
-    <xsl:text>&#160;</xsl:text>
-    <span>
-      <xsl:attribute name="style">vertical-align:middle;line-height:2.5em;font-family:'Libre Barcode 39 Extended Text','Libre Barcode 39 Text','CarolinaBar-B39-2.5-22x158x720',Code39,'Bar-Code 39',monospace</xsl:attribute>
-      <xsl:value-of select="normalize-space($barcode)"/>
-    </span>
-    <xsl:text>&#160;</xsl:text>
-  </xsl:if>
+  <xsl:param name="imgname" select=""/>
+
+  <xsl:choose>
+    <xsl:when test="normalize-space($imgname) != ''">
+      <xsl:text>&#160;</xsl:text>
+      <span>
+        <xsl:attribute name="style">display:inline-block;vertical-align:middle;font-size:200%;font-family:'Libre Barcode 39 Extended Text','Libre Barcode 39 Text','CarolinaBar-B39-2.5-22x158x720',Code39,'Bar-Code 39',monospace</xsl:attribute>
+        <img>
+          <xsl:attribute name="src">
+            <xsl:value-of select="normalize-space($imgname)"/>
+          </xsl:attribute>
+          <xsl:attribute name="alt">
+            <xsl:if test="normalize-space($barcode) != ''">
+              <xsl:value-of select="normalize-space($barcode)"/>
+            </xsl:if>
+          </xsl:attribute>
+        </img>
+      </span>
+      <xsl:text> </xsl:text>
+    </xsl:when>  
+    <xsl:when test="normalize-space($barcode) != ''">
+      <xsl:text>&#160;</xsl:text>
+      <span>
+        <xsl:attribute name="style">display:inline-block;vertical-align:middle;font-size:200%;font-family:'Libre Barcode 39 Extended Text','Libre Barcode 39 Text','CarolinaBar-B39-2.5-22x158x720',Code39,'Bar-Code 39',monospace</xsl:attribute>
+        <xsl:value-of select="normalize-space($barcode)"/>
+      </span>
+      <xsl:text> </xsl:text>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:text> </xsl:text>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 </xsl:stylesheet>
