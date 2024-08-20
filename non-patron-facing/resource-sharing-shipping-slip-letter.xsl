@@ -142,7 +142,7 @@
                     <b>@@external_identifier@@: </b>
                     <xsl:call-template name="scannable-barcode">
                       <xsl:with-param name="barcode" select="notification_data/incoming_request/external_request_id"/>
-                      <xsl:with-param name="imgname" select="'cid:externalId.png'"/>
+                      <xsl:with-param name="imgname">cid:externalId.png</xsl:with-param>
                     </xsl:call-template>
                   </td>
                 </tr>
@@ -153,7 +153,7 @@
                     <b>@@item_barcode@@: </b>
                     <xsl:call-template name="scannable-barcode">
                       <xsl:with-param name="barcode" select="notification_data/item/barcode"/>
-                      <xsl:with-param name="imgname" select="'cid:Barcode1.png'"/>
+                      <xsl:with-param name="imgname">cid:Barcode1.png</xsl:with-param>
                     </xsl:call-template>
                   </td>
                 </tr>
