@@ -12,6 +12,10 @@
         <xsl:call-template name="generalStyle"/>
       </head>
       <body>
+        <xsl:attribute name="style">
+          <xsl:call-template name="bodyStyleCss"/>
+          <!-- style.xsl -->
+        </xsl:attribute>
         <h2>
           <b>@@requested_for@@ : <xsl:value-of select="notification_data/user_for_printing/name"/> </b>
         </h2>
