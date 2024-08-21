@@ -12,9 +12,9 @@
         <xsl:call-template name="generalStyle"/>
       </head>
       <body>
-        <h1>
+        <h2>
           <b>@@requested_for@@ : <xsl:value-of select="notification_data/user_for_printing/name"/> </b>
-        </h1>
+        </h2>
         <xsl:call-template name="head"/>
         <!-- header.xsl -->
         <div class="messageArea">
