@@ -63,7 +63,7 @@
                         <td><xsl:value-of select="description"/></td>
                         <td>
                           <xsl:choose>
-                            <xsl:when test="notification_data/short_loans='true'">
+                            <xsl:when test="/notification_data/short_loans='true'">
                               <xsl:call-template name="yyyymmdd">
                                 <xsl:with-param name="inputDate" select="new_due_date_str"/>
                               </xsl:call-template>
