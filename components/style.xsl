@@ -71,16 +71,18 @@ background-color: #0075b0; padding: 0.4em; margin-top: 0.8em; border-radius: 0.2
   <!-- date portion -->
   <xsl:choose>
     <xsl:when test="substring($inputDate,3,1) ='/' and substring($inputDate,6,1) = '/' and translate(substring($inputDate,1,10),'1234567890/','') = ''">
+       <!-- convert DD/MM/YYYY to YYYY-MM-DD -->
        <xsl:value-of select="concat(substring($inputDate,7,4),'-',substring($inputDate,4,2),'-',substring($inputDate,1,2))"/>
      </xsl:when>
      <xsl:otherwise>
-      <xsl:value-of select="substring($inputDate,1,10)"/>
+       <xsl:value-of select="substring($inputDate,1,10)"/>
      </xsl:otherwise>
   </xsl:choose>
 
   <!-- time portion -->
   <xsl:choose>
     <xsl:when test="string-length(substring($inputDate,12)) > 3 and translate(substring($inputDate, 12, 4), '1234567890','') = ''">
+      <!-- convert HHMM to HH:MM -->
       <xsl:value-of select="concat('&#160;', substring($inputDate,12,2), ':', substring($inputDate, 14, 2))"/> 
     </xsl:when>
     <xsl:when test="string-length(substring($inputDate,12)) > 4 and translate(substring($inputDate, 12, 5), '1234567890:','') = ''">
