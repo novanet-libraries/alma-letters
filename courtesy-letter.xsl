@@ -44,7 +44,6 @@
               </tr>
               <tr>
                 <td>
-							<td><xsl:value-of select="due_date"/></td>
                   <table cellpadding="5" class="listing">
                     <xsl:attribute name="style">
                       <xsl:call-template name="mainTableStyleCss"/>
@@ -62,6 +61,12 @@
                         <td><xsl:value-of select="title"/></td>
                         <td><xsl:value-of select="author"/></td>
                         <td><xsl:value-of select="description"/></td>
+                        <td>
+                          <!-- <xsl:value-of select="due_date"/> -->
+                          <xsl:call-template name="yyyymmdd">
+                            <xsl:with-param name="inputDate" select="due_date"/>
+                          </xsl:call-template>
+                        </td>
                         <td><xsl:value-of select="library_name"/></td>
                       </tr>
                     </xsl:for-each>
