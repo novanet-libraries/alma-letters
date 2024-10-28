@@ -62,10 +62,18 @@
                         <td><xsl:value-of select="author"/></td>
                         <td><xsl:value-of select="description"/></td>
                         <td>
-                          <!-- <xsl:value-of select="due_date"/> -->
-                          <xsl:call-template name="yyyymmdd">
-                            <xsl:with-param name="inputDate" select="due_date"/>
-                          </xsl:call-template>
+                          <xsl:choose>
+                            <xsl:when test="notification_data/short_loans='true'">
+                              <xsl:call-template name="yyyymmdd">
+                                <xsl:with-param name="inputDate" select="new_due_date_str"/>
+                              </xsl:call-template>
+                            </xsl:when>
+                            <xsl:otherwise>
+                              <xsl:call-template name="yyyymmdd">
+                                <xsl:with-param name="inputDate" select="due_date"/>
+                              </xsl:call-template>
+                            </xsl:otherwise>
+                          </xsl:choose>
                         </td>
                         <td><xsl:value-of select="library_name"/></td>
                       </tr>
