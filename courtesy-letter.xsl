@@ -40,7 +40,9 @@
                 </td>
               </tr>
               <tr>
-                <td><strong>@@loans@@</strong></td>
+                <td>
+                  <strong>@@loans@@</strong>
+                </td>
               </tr>
               <tr>
                 <td>
@@ -58,9 +60,15 @@
                     </tr>
                     <xsl:for-each select="notification_data/item_loans/item_loan">
                       <tr>
-                        <td><xsl:value-of select="title"/></td>
-                        <td><xsl:value-of select="author"/></td>
-                        <td><xsl:value-of select="description"/></td>
+                        <td>
+                          <xsl:value-of select="title"/>
+                        </td>
+                        <td>
+                          <xsl:value-of select="author"/>
+                        </td>
+                        <td>
+                          <xsl:value-of select="description"/>
+                        </td>
                         <td>
                           <xsl:choose>
                             <xsl:when test="/notification_data/short_loans='true'">
@@ -75,7 +83,9 @@
                             </xsl:otherwise>
                           </xsl:choose>
                         </td>
-                        <td><xsl:value-of select="library_name"/></td>
+                        <td>
+                          <xsl:value-of select="library_name"/>
+                        </td>
                       </tr>
                     </xsl:for-each>
                   </table>
@@ -84,7 +94,14 @@
             </table>
             <br/>
             <br/>
-            <table role="presentation"><tr><td>@@sincerely@@</td></tr><tr><td>@@department@@</td></tr></table>
+            <table role="presentation">
+              <tr>
+                <td>@@sincerely@@</td>
+              </tr>
+              <tr>
+                <td>@@department@@</td>
+              </tr>
+            </table>
           </div>
         </div>
         <!-- footer.xsl -->
