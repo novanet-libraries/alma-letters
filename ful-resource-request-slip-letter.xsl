@@ -39,7 +39,9 @@
               </xsl:if>
               <xsl:if test="notification_data/request/manual_description != ''">
                 <tr>
-                  <td><strong>@@please_note@@: </strong>@@manual_description_note@@ - <xsl:value-of select="notification_data/request/manual_description"/></td>
+                  <td>
+                    <strong>@@please_note@@: </strong>@@manual_description_note@@ - <xsl:value-of select="notification_data/request/manual_description"/>
+                  </td>
                 </tr>
               </xsl:if>
               <xsl:call-template name="print-row-if-data-exists">
@@ -95,22 +97,26 @@
               </tr>
               <xsl:if test="notification_data/phys_item_display/isbn != ''">
                 <tr>
-                  <td>@@isbn@@: <xsl:value-of select="notification_data/phys_item_display/isbn"/></td>
+                  <td>@@isbn@@: <xsl:value-of select="notification_data/phys_item_display/isbn"/>
+                  </td>
                 </tr>
               </xsl:if>
               <xsl:if test="notification_data/phys_item_display/issn != ''">
                 <tr>
-                  <td>@@issn@@: <xsl:value-of select="notification_data/phys_item_display/issn"/></td>
+                  <td>@@issn@@: <xsl:value-of select="notification_data/phys_item_display/issn"/>
+                  </td>
                 </tr>
               </xsl:if>
               <xsl:if test="notification_data/phys_item_display/edition != ''">
                 <tr>
-                  <td>@@edition@@: <xsl:value-of select="notification_data/phys_item_display/edition"/></td>
+                  <td>@@edition@@: <xsl:value-of select="notification_data/phys_item_display/edition"/>
+                  </td>
                 </tr>
               </xsl:if>
               <xsl:if test="notification_data/phys_item_display/imprint != ''">
                 <tr>
-                  <td>@@imprint@@: <xsl:value-of select="notification_data/phys_item_display/imprint"/></td>
+                  <td>@@imprint@@: <xsl:value-of select="notification_data/phys_item_display/imprint"/>
+                  </td>
                 </tr>
               </xsl:if>
               <strong/>
