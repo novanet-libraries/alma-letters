@@ -33,8 +33,14 @@
             <table role="presentation" cellspacing="0" cellpadding="5" border="0">
               <tr>
                 <td>
-                  <xsl:if test="notification_data/short_loans='true'">@@short_loans_message@@</xsl:if>
-                  <xsl:if test="notification_data/short_loans='false'">@@message@@</xsl:if>
+                  <xsl:choose>
+                    <xsl:when test="/notification_data/short_loans='true'">
+                      @@short_loans_message@@
+                    </xsl:when>
+                    <xsl:otherwise>
+                      @@message@@
+                    </xsl:otherwise>
+                  </xsl:choose>
                   <br/>
                   <br/>
                 </td>
