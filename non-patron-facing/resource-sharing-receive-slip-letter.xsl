@@ -32,22 +32,6 @@
                 <xsl:call-template name="listStyleCss"/>
                 <!-- style.xsl -->
               </xsl:attribute>
-              <xsl:if test="notification_data/barcode !=''">
-                <tr>
-                  <td>
-                    <br/>
-                    <strong>@@item_barcode@@: </strong>
-                    <img src="Barcode.png" alt="Barcode"/>
-                  </td>
-                </tr>
-              </xsl:if>
-              <tr>
-                <td>
-                  <br/>
-                  <strong>@@request_id@@: </strong>
-                  <img src="externalId.png" alt="externalId"/>
-                </td>
-              </tr>
               <tr>
                 <td>
                   <br/>
@@ -71,6 +55,22 @@
                   <xsl:text> ) </xsl:text>
                 </td>
               </tr>
+              <tr>
+                <td>
+                  <br/>
+                  <strong>@@request_id@@: </strong>
+                  <img src="externalId.png" alt="externalId"/>
+                </td>
+              </tr>
+              <xsl:if test="notification_data/barcode !=''">
+                <tr>
+                  <td>
+                    <br/>
+                    <strong>@@item_barcode@@: </strong>
+                    <img src="Barcode.png" alt="Barcode"/>
+                  </td>
+                </tr>
+              </xsl:if>
               <tr>
                 <td>
                   <br/>
