@@ -24,71 +24,30 @@
         <xsl:call-template name="head"/>
         <div class="messageArea">
           <table>
-            <xsl:if test="notification_data/partner_name_and_inst !=''">
-              <tr>
-                <td>
-                  <br/>
-                  <xsl:value-of select="/notification_data/partner_name_and_inst"/>
-                </td>
-              </tr>
-            </xsl:if>
-            <xsl:if test="notification_data/rapid_partner_address !=''">
-              <tr>
-                <td>
-                  <br/>
-                  <xsl:value-of select="notification_data/rapid_partner_address"/>
-                </td>
-              </tr>
-            </xsl:if>
-            <xsl:if test="notification_data/partner_address/line1 !=''">
-              <tr>
-                <td>
-                  <xsl:value-of select="notification_data/partner_address/line1"/>
-                </td>
-              </tr>
-            </xsl:if>
-            <xsl:if test="notification_data/partner_address/line2 !=''">
-              <tr>
-                <td>
-                  <xsl:value-of select="notification_data/partner_address/line2"/>
-                </td>
-              </tr>
-            </xsl:if>
-            <xsl:if test="notification_data/partner_address/line3 !=''">
-              <tr>
-                <td>
-                  <xsl:value-of select="notification_data/partner_address/line3"/>
-                </td>
-              </tr>
-            </xsl:if>
-            <xsl:if test="notification_data/partner_address/line4 !=''">
-              <tr>
-                <td>
-                  <xsl:value-of select="notification_data/partner_address/line4"/>
-                </td>
-              </tr>
-            </xsl:if>
-            <xsl:if test="notification_data/partner_address/line5 !=''">
-              <tr>
-                <td>
-                  <xsl:value-of select="notification_data/partner_address/line5"/>
-                </td>
-              </tr>
-            </xsl:if>
-            <xsl:if test="notification_data/partner_address/city !=''">
-              <tr>
-                <td>
-                  <xsl:value-of select="notification_data/partner_address/city"/>
-                </td>
-              </tr>
-            </xsl:if>
-            <xsl:if test="notification_data/partner_address/country !=''">
-              <tr>
-                <td>
-                  <xsl:value-of select="notification_data/partner_address/country"/>
-                </td>
-              </tr>
-            </xsl:if>
+            <xsl:call-template name="print-row-if-data-exists">
+              <xsl:with-param name="data" select="notification_data/partner_name_and_inst"/>
+            </xsl:call-template>
+            <xsl:call-template name="print-row-if-data-exists">
+              <xsl:with-param name="data" select="notification_data/rapid_partner_address"/>
+            </xsl:call-template>
+            <xsl:call-template name="print-row-if-data-exists">
+              <xsl:with-param name="data" select="notification_data/partner_address/line1"/>
+            </xsl:call-template>
+            <xsl:call-template name="print-row-if-data-exists">
+              <xsl:with-param name="data" select="notification_data/partner_address/line2"/>
+            </xsl:call-template>
+            <xsl:call-template name="print-row-if-data-exists">
+              <xsl:with-param name="data" select="notification_data/partner_address/line3"/>
+            </xsl:call-template>
+            <xsl:call-template name="print-row-if-data-exists">
+              <xsl:with-param name="data" select="notification_data/partner_address/line4"/>
+            </xsl:call-template>
+            <xsl:call-template name="print-row-if-data-exists">
+              <xsl:with-param name="data" select="notification_data/partner_address/line5"/>
+            </xsl:call-template>
+            <xsl:call-template name="print-row-if-data-exists">
+              <xsl:with-param name="data" select="concat(notification_data/partner_address/city, ' ', notification_data/partner_address/state_province, ' ', notification_data/partner_address/postal_code)"/>
+            </xsl:call-template>
           </table>
           <br/>
           <xsl:if test="'' != normalize-space(notification_data/borrowing/external_request_id)">
