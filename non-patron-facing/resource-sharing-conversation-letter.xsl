@@ -90,6 +90,39 @@
               </tr>
             </xsl:if>
           </table>
+          <br/>
+          <xsl:if test="'' != normalize-space(notification_data/borrowing/external_request_id)">
+            <table>
+              <xsl:call-template name="print-row-if-data-exists">
+                <xsl:with-param name="data" select="notification_data/borrowing/external_request_id"/>
+                <xsl:with-param name="label" select="'Regarding request ID'"/>
+              </xsl:call-template>
+              <xsl:call-template name="print-row-if-data-exists">
+                <xsl:with-param name="data" select="notification_data/borrowing/title"/>
+                <xsl:with-param name="label" select="'Title'"/>
+              </xsl:call-template>
+              <xsl:call-template name="print-row-if-data-exists">
+                <xsl:with-param name="data" select="notification_data/borrowing/identifier"/>
+                <xsl:with-param name="label" select="'ISBN/ISSN'"/>
+              </xsl:call-template>
+            </table>
+          </xsl:if>
+          <xsl:if test="'' != normalize-space(notification_data/lending/external_request_id)">
+            <table>
+              <xsl:call-template name="print-row-if-data-exists">
+                <xsl:with-param name="data" select="notification_data/lending/external_request_id"/>
+                <xsl:with-param name="label" select="'Regarding request ID'"/>
+              </xsl:call-template>
+              <xsl:call-template name="print-row-if-data-exists">
+                <xsl:with-param name="data" select="notification_data/lending/title"/>
+                <xsl:with-param name="label" select="'Title'"/>
+              </xsl:call-template>
+              <xsl:call-template name="print-row-if-data-exists">
+                <xsl:with-param name="data" select="notification_data/lending/identifier"/>
+                <xsl:with-param name="label" select="'ISBN/ISSN'"/>
+              </xsl:call-template>
+            </table>
+          </xsl:if>
           <div class="messageBody">
             <table role='presentation' cellspacing="0" cellpadding="5" border="0">
               <xsl:attribute name="style">
