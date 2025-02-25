@@ -27,6 +27,7 @@
             <xsl:call-template name="print-row-if-data-exists">
               <xsl:with-param name="data" select="notification_data/partner_name_and_inst"/>
             </xsl:call-template>
+            <!--
             <xsl:call-template name="print-row-if-data-exists">
               <xsl:with-param name="data" select="notification_data/rapid_partner_address"/>
             </xsl:call-template>
@@ -48,6 +49,10 @@
             <xsl:call-template name="print-row-if-data-exists">
               <xsl:with-param name="data" select="concat(notification_data/partner_address/city, ' ', notification_data/partner_address/state_province, ' ', notification_data/partner_address/postal_code)"/>
             </xsl:call-template>
+            <xsl:if test="notification_data/partner_address/country_display and 'CAN' != notification_data/partner_address/country">
+              <tr><td><xsl:value-of select="notification_data/partner_address/country_display"/></td></tr>
+            </xsl:if>
+            -->
           </table>
           <br/>
           <xsl:if test="'' != normalize-space(notification_data/borrowing/external_request_id)">
