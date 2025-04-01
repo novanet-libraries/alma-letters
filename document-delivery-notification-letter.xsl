@@ -77,6 +77,18 @@
                 </tr>
               </xsl:if>
               <xsl:choose>
+                <xsl:when test="normalize-space(notification_data/download_url_no_authentication) != ''">
+                  <tr>
+                    <td>
+                      <a>
+                        <xsl:attribute name="href">
+                          <xsl:value-of select="notification_data/download_url_no_authentication"/>
+                        </xsl:attribute>
+                        <xsl:text>@@without_authentication@@</xsl:text>
+                      </a>
+                    </td>
+                  </tr>
+                </xsl:when>
                 <xsl:when test="normalize-space(notification_data/download_url_saml) != '' and normalize-space(notification_data/user_for_printing/identifiers/code_value/value[../code = 'SSO_ID']) != ''">
                   <!-- we've found some instances where the provided SAML URL is missing an idpCode and so does not work for us.  This replacement should address that problem (and not cause any problems when the provided URL is already correct.) -->
                   <xsl:variable name="saml_url">
