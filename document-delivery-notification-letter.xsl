@@ -13,6 +13,25 @@
   <xsl:variable name="isDeposit" select="/notification_data/request/deposit_indicator"/>
   <xsl:variable name="isDigitalDocDelivery" select="/notification_data/digital_document_delivery"/>
   <xsl:variable name="fileUploaded" select="/notification_data/file_uploaded"/>
+  <xsl:template name="strreplace">
+    <xsl:param name="src"/>
+    <xsl:param name="find"/>
+    <xsl:param name="replace"/>
+    <xsl:choose>
+      <xsl:when test="contains($src, $find)">
+        <xsl:value-of select="substring-before($src, $find)"/>
+        <xsl:value-of select="$replace"/>
+        <xsl:call-template name="strreplace">
+          <xsl:with-param name="src" select="substring-after($src,$find)"/>
+          <xsl:with-param name="find" select="$find"/>
+          <xsl:with-param name="replace" select="$replace"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$src"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
   <xsl:template match="/">
     <html>
       <xsl:if test="notification_data/languages/string">
