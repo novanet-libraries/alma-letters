@@ -78,12 +78,20 @@
               </xsl:if>
               <xsl:choose>
                 <xsl:when test="normalize-space(notification_data/download_url_saml) != '' and normalize-space(notification_data/user_for_printing/identifiers/code_value/value[../code = 'SSO_ID']) != ''">
+                  <!-- we've found some instances where the provided SAML URL is missing an idpCode and so does not work for us.  This replacement should address that problem (and not cause any problems when the provided URL is already correct.) -->
+                  <xsl:variable name="saml_url">
+                    <xsl:call-template name="strreplace">
+                      <xsl:with-param name="src" select="normalize-space(notification_data/download_url_saml)"/>
+                      <xsl:with-param name="find" select="'idpCode=&amp;'"/>
+                      <xsl:with-param name="replace" select="'idpCode=SAML&amp;'"/>
+                    </xsl:call-template>
+                  </xsl:variable>
                   <tr>
                     <td>
                       <xsl:text>@@for_saml_users@@ </xsl:text>
                       <a>
                         <xsl:attribute name="href">
-                          <xsl:value-of select="notification_data/download_url_saml"/>
+                          <xsl:value-of select="$saml_url"/>
                         </xsl:attribute>
                         <xsl:text>@@click_here@@</xsl:text>
                       </a>
