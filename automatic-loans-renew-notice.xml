@@ -41,11 +41,7 @@
                   <br/>
                 </td>
               </tr>
-              <tr>
-                <td>
-                  <strong>@@loans@@</strong>
-                </td>
-              </tr>
+              <!-- <tr><td><strong>@@loans@@</strong></td></tr> -->
               <tr>
                 <td>
                   <table cellpadding="5" class="listing">
