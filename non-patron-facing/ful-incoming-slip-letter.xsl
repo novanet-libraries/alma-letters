@@ -120,6 +120,10 @@
                 <xsl:with-param name="data" select="notification_data/metadata/publication_date"/>
               </xsl:call-template>
               <xsl:call-template name="print-row-if-data-exists">
+                <xsl:with-param name="label">@@call_number@@</xsl:with-param>
+                <xsl:with-param name="data" select="notification_data/metadata/call_number"/>
+              </xsl:call-template>
+              <xsl:call-template name="print-row-if-data-exists">
                 <xsl:with-param name="label">@@volume@@</xsl:with-param>
                 <xsl:with-param name="data" select="notification_data/metadata/volume"/>
               </xsl:call-template>
