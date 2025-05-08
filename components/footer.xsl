@@ -9,13 +9,11 @@
     <table>
       <xsl:attribute name="style">
         <xsl:call-template name="footerTableStyleCss"/>
-        <!-- style.xsl -->
       </xsl:attribute>
       <tr>
         <xsl:for-each select="notification_data/organization_unit">
           <xsl:attribute name="style">
             <xsl:call-template name="listStyleCss"/>
-            <!-- style.xsl -->
           </xsl:attribute>
           <td align="left">
             <xsl:value-of select="name"/>
