@@ -11,14 +11,35 @@
         <xsl:call-template name="footerTableStyleCss"/>
       </xsl:attribute>
       <tr>
-        <xsl:for-each select="notification_data/organization_unit">
-          <xsl:attribute name="style">
-            <xsl:call-template name="listStyleCss"/>
-          </xsl:attribute>
-          <td align="left">
-            <xsl:value-of select="name"/>
-          </td>
-        </xsl:for-each>
+        <xsl:attribute name="style">
+          <xsl:call-template name="listStyleCss"/>
+        </xsl:attribute>
+        <td align="left">
+          <xsl:choose>
+            <!-- when the letter is an institution-level letter at Dal, check if the institution might be King's and just explicitly say that -->
+            <xsl:when test="notification_data/organization_unit/org_scope/institution_id = '7190' and not(notification_data/organization_unit/org_scope/library_id/node())">
+              <xsl:choose>
+                <xsl:when test="notification_data/library/code = 'KINGS'">
+                  <xsl:value-of select="notification_data/library/name"/>
+                </xsl:when>
+                <xsl:when test="notification_data/receivers/receiver/printer/library_id = '112098730007190'">
+                  <xsl:text>University of King's College</xsl:text>
+                </xsl:when>
+                <xsl:when test="notification_data/incoming_request/library_id = '112098730007190'">
+                  <xsl:text>University of King's College</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                  <!-- could not find "KINGS" anywhere; fallback to "Dalhousie University" -->
+                  <xsl:value-of select="notification_data/organization_unit/name"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:when>
+            <!-- otherwise just write the regular org_unit name (institution or library) -->
+            <xsl:otherwise>
+              <xsl:value-of select="notification_data/organization_unit/name"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </td>
       </tr>
     </table>
   </xsl:template>
