@@ -67,10 +67,13 @@
         <br/>
         <table role='presentation'>
           <tr>
+            <!-- note about contacting pickup location for questions -->
             <td>@@sincerely@@</td>
           </tr>
           <tr>
-            <td>@@department@@</td>
+            <td>
+              <a href="https://www.novanet.ca/novanet-libraries-main-circulation-desk-contacts/">Contact Information for Novanet Libraries</a>
+            </td>
           </tr>
         </table>
         <xsl:call-template name="lastFooter"/>
