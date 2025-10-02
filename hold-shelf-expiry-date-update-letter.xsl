@@ -32,7 +32,7 @@
         <!-- mailReason.xsl -->
         <div class="messageArea">
           <div class="messageBody">
-            <table role='presentation' cellspacing="0" cellpadding="5" border="0">
+            <table role="presentation" cellspacing="0" cellpadding="5" border="0">
               <tr>
                 <td>@@following_item_requested_on@@ <xsl:value-of select="notification_data/request/create_date"/>, @@can_picked_at@@ <xsl:value-of select="notification_data/request/assigned_unit_name"/> @@circulation_desk@@.</td>
               </tr>
@@ -65,7 +65,7 @@
           </div>
         </div>
         <br/>
-        <table role='presentation'>
+        <table role="presentation">
           <tr>
             <!-- note about contacting pickup location for questions -->
             <td>@@sincerely@@</td>
