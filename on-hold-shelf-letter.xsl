@@ -59,6 +59,10 @@
                   <!-- recordTitle.xsl -->
                 </td>
               </tr>
+              <xsl:call-template name="print-row-if-data-exists">
+                <xsl:with-param name="label">Barcode</xsl:with-param>
+                <xsl:with-param name="data" select="notification_data/phys_item_display/barcode"/>
+              </xsl:call-template>
               <xsl:if test="notification_data/request/system_notes">
                 <tr>
                   <td>
