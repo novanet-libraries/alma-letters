@@ -63,6 +63,7 @@
                       <th>@@description@@</th>
                       <th>@@due_date@@</th>
                       <th>@@library@@</th>
+                      <th>Barcode</th>
                     </tr>
                     <xsl:for-each select="notification_data/item_loans/item_loan">
                       <tr>
@@ -91,6 +92,9 @@
                         </td>
                         <td>
                           <xsl:value-of select="library_name"/>
+                        </td>
+                        <td>
+                            <xsl:value-of select="barcode"/>
                         </td>
                       </tr>
                     </xsl:for-each>
