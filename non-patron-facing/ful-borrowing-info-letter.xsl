@@ -82,7 +82,7 @@
               </xsl:choose>
             </table>
             <br/>
-            <table role='presentation'>
+            <table role="presentation">
               <tr>
                 <td>@@sincerely@@</td>
               </tr>
@@ -93,7 +93,7 @@
           </div>
         </div>
         <xsl:call-template name="lastFooter"/>
-        <xsl:call-template name="slipFooter"/>
+        <xsl:call-template name="myAccount"/>
         <!-- footer.xsl -->
       </body>
     </html>
