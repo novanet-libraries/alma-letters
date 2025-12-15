@@ -22,6 +22,12 @@
                 <xsl:when test="notification_data/library/code = 'KINGS'">
                   <xsl:value-of select="notification_data/library/name"/>
                 </xsl:when>
+                <xsl:when test="substring-after(notification_data/general_data/address_from, '@') = 'ukings.ca'">
+                  <xsl:text>University of King's College</xsl:text>
+                </xsl:when> 
+                <xsl:when test="substring-after(notification_data/letter_params/address_from, '@') = 'ukings.ca'">
+                  <xsl:text>University of King's College</xsl:text>
+                </xsl:when> 
                 <xsl:when test="notification_data/receivers/receiver/printer/library_id = '112098730007190'">
                   <xsl:text>University of King's College</xsl:text>
                 </xsl:when>
