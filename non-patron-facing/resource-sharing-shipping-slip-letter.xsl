@@ -120,6 +120,10 @@
                   </td>
                 </tr>
               </xsl:if>
+              <xsl:call-template name="print-row-if-data-exists">
+                <xsl:with-param name="data" select="notification_data/incoming_request/due_date_str"/>
+                <xsl:with-param name="label" select="'Due Date'"/>
+              </xsl:call-template>
               <xsl:if test="notification_data/incoming_request/needed_by">
                 <tr>
                   <td>
