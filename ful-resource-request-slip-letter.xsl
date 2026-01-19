@@ -52,6 +52,10 @@
                 <xsl:with-param name="label">Chapter/Article author</xsl:with-param>
                 <xsl:with-param name="data" select="notification_data/request/chapter_article_author"/>
               </xsl:call-template>
+              <xsl:call-template name="print-row-if-data-exists">
+                <xsl:with-param name="label">Vol/Iss</xsl:with-param>
+                <xsl:with-param name="data" select="notification_data/request/volume_issue"/>
+              </xsl:call-template>
               <tr>
                 <td>
                   <strong>@@request_id@@: </strong>
