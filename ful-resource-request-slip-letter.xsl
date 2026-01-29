@@ -6,6 +6,21 @@
   <xsl:include href="footer.xsl"/>
   <xsl:include href="style.xsl"/>
   <xsl:include href="recordTitle.xsl"/>
+
+  <xsl:template name="pluck-volume-from-request-info">
+    <xsl:if test="contains(/notification_data/incoming_request/request_metadata, '&lt;dc:volume&gt;')">
+      <xsl:variable name='reqVol' select="normalize-space(substring-before(substring-after(., '&lt;dc:volume&gt;'), '&lt;/dc:volume&gt;'))"/>
+      <xsl:if test="string-length($reqVol) &gt; 0">
+        <tr>
+          <td>
+            <strong>Requested Volume:</strong>
+            <xsl:value-of select="$reqVol"/>
+          </td>
+        </tr>        
+      </xsl:if>
+    </xsl:if>
+  </xsl:template>
+
   <xsl:template match="/">
     <html>
       <xsl:if test="notification_data/languages/string">
@@ -264,6 +279,8 @@
                   </td>
                 </tr>
               </xsl:if>
+              <!-- "Requested Volume" is similar to 'request note' but harder to find in the source XML for some reason -->
+              <xsl:call-template name="pluck-volume-from-request-info"></xsl:call-template>
             </table>
           </div>
         </div>
