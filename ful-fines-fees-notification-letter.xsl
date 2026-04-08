@@ -31,13 +31,13 @@
         <table role='presentation' cellspacing="0" cellpadding="5" border="0">
           <tr>
             <td>
-              <h>@@dear@@ </h>
-              <br/>
-              <h>@@we_would_like@@ <xsl:value-of select="notification_data/organization_unit/name"/> @@debt_of@@ <strong>
+              <xsl:call-template name="toWhomIsConcerned"/>
+              <p>
+              @@we_would_like@@ <xsl:value-of select="notification_data/organization_unit/name"/> @@debt_of@@ <strong>
                   <xsl:value-of select="notification_data/total_fines_amount"/>
 					&#160;<xsl:value-of select="notification_data/total_fines_currency"/>
                 </strong>
-              </h>
+              </p>
             </td>
           </tr>
         </table>
