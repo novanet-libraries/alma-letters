@@ -64,6 +64,7 @@
                 </td>
                 <td>
                   <xsl:value-of select="fine_fee_ammount/normalized_sum"/>&#160;<xsl:value-of select="fine_fee_ammount/currency"/>
+                  <!-- [sic] 'amount' is misspelled in the source XML schema -->
                 </td>
                 <td>
                   <xsl:value-of select="item_title"/>
