@@ -54,6 +54,7 @@
             <tr>
               <th>@@fee_type@@</th>
               <th>@@fee_amount@@</th>
+              <th>@@line17@@</th>
               <th>@@note@@</th>
             </tr>
             <xsl:for-each select="notification_data/fines_fees_list/user_fines_fees">
@@ -63,6 +64,9 @@
                 </td>
                 <td>
                   <xsl:value-of select="fine_fee_ammount/normalized_sum"/>&#160;<xsl:value-of select="fine_fee_ammount/currency"/>
+                </td>
+                <td>
+                  <xsl:value-of select="item_title"/>
                 </td>
                 <td>
                   <xsl:value-of select="fine_comment"/>
