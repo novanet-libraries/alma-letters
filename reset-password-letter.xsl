@@ -45,7 +45,7 @@
                   @@bodyTextAfterLink@@
                   <xsl:choose>
                     <xsl:when test="contains(notification_data/reset_pw_url, 'backUrl=')">one hour.</xsl:when>
-                    <xsl:otherwise>one week.</xsl:otherwise>
+                    <xsl:otherwise>24 hours.</xsl:otherwise>
                   </xsl:choose>
                 </td>
               </tr>
