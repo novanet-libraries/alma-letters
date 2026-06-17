@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet
-  version="1.0"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:exsl="http://exslt.org/common"
-  extension-element-prefixes="exsl">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:template name="generalStyle">
  <style>
@@ -124,72 +120,72 @@ background-color: #0075b0; padding: 0.4em; margin-top: 0.8em; border-radius: 0.2
 </xsl:template>
 
 <!-- Map province names to abbreviations -->
+<xsl:variable name="provinceMap">
+  <province name="alberta" abbr="AB"/>
+  <province name="british columbia" abbr="BC"/>
+  <province name="manitoba" abbr="MB"/>
+  <province name="new brunswick" abbr="NB"/>
+  <province name="newfoundland and labrador" abbr="NL"/>
+  <province name="northwest territories" abbr="NT"/>
+  <province name="nova scotia" abbr="NS"/>
+  <province name="nunavut" abbr="NU"/>
+  <province name="ontario" abbr="ON"/>
+  <province name="prince edward island" abbr="PE"/>
+  <province name="quebec" abbr="QC"/>
+  <province name="saskatchewan" abbr="SK"/>
+  <province name="yukon" abbr="YT"/>
+
+  <!-- French names, without accents -->
+  <province name="colombie britannique" abbr="BC"/>
+  <province name="terre neuve et labrador" abbr="NL"/>
+  <province name="territoires du nord ouest" abbr="NT"/>
+  <province name="nouvelle ecosse" abbr="NS"/>
+  <province name="ile du prince edouard" abbr="PE"/>
+
+  <!-- in case the abbreviations are just entered correctly in the first place -->
+  <province name="ab" abbr="AB"/>
+  <province name="bc" abbr="BC"/>
+  <province name="mb" abbr="MB"/>
+  <province name="nb" abbr="NB"/>
+  <province name="nl" abbr="NL"/>
+  <province name="nt" abbr="NT"/>
+  <province name="ns" abbr="NS"/>
+  <province name="nu" abbr="NU"/>
+  <province name="on" abbr="ON"/>
+  <province name="pe" abbr="PE"/>
+  <province name="qc" abbr="QC"/>
+  <province name="sk" abbr="SK"/>
+  <province name="yt" abbr="YT"/>
+
+  <!-- Informal/Alternative names -->
+  <province name="newfoundland" abbr="NL"/>
+  <province name="labrador" abbr="NL"/>
+  <province name="nf" abbr="NL"/>
+  <province name="terre neuve" abbr="NL"/>
+  <province name="ne" abbr="NS"/>
+  <province name="nwt" abbr="NT"/>
+  <province name="pei" abbr="PE"/>
+  <province name="pq" abbr="QC"/>
+  <province name="yukon territory" abbr="YT"/>
+</xsl:variable>
+<xsl:key name="provAbbr" match="document('')//$provinceMap" use="@name"/>
+
 <xsl:template name="abbreviate-province">
   <xsl:param name="prov"/>
-
-  <xsl:variable name="provinceMap">
-    <province name="alberta" abbr="AB"/>
-    <province name="british columbia" abbr="BC"/>
-    <province name="manitoba" abbr="MB"/>
-    <province name="new brunswick" abbr="NB"/>
-    <province name="newfoundland and labrador" abbr="NL"/>
-    <province name="northwest territories" abbr="NT"/>
-    <province name="nova scotia" abbr="NS"/>
-    <province name="nunavut" abbr="NU"/>
-    <province name="ontario" abbr="ON"/>
-    <province name="prince edward island" abbr="PE"/>
-    <province name="quebec" abbr="QC"/>
-    <province name="saskatchewan" abbr="SK"/>
-    <province name="yukon" abbr="YT"/>
-
-    <!-- French names, without accents -->
-    <province name="colombie britannique" abbr="BC"/>
-    <province name="terre neuve et labrador" abbr="NL"/>
-    <province name="territoires du nord ouest" abbr="NT"/>
-    <province name="nouvelle ecosse" abbr="NS"/>
-    <province name="ile du prince edouard" abbr="PE"/>
-
-    <!-- in case the abbreviations are just entered correctly in the first place -->
-    <province name="ab" abbr="AB"/>
-    <province name="bc" abbr="BC"/>
-    <province name="mb" abbr="MB"/>
-    <province name="nb" abbr="NB"/>
-    <province name="nl" abbr="NL"/>
-    <province name="nt" abbr="NT"/>
-    <province name="ns" abbr="NS"/>
-    <province name="nu" abbr="NU"/>
-    <province name="on" abbr="ON"/>
-    <province name="pe" abbr="PE"/>
-    <province name="qc" abbr="QC"/>
-    <province name="sk" abbr="SK"/>
-    <province name="yt" abbr="YT"/>
-
-    <!-- Informal/Alternative names -->
-    <province name="newfoundland" abbr="NL"/>
-    <province name="labrador" abbr="NL"/>
-    <province name="nf" abbr="NL"/>
-    <province name="terre neuve" abbr="NL"/>
-    <province name="ne" abbr="NS"/>
-    <province name="nwt" abbr="NT"/>
-    <province name="pei" abbr="PE"/>
-    <province name="pq" abbr="QC"/>
-    <province name="yukon territory" abbr="YT"/>
-  </xsl:variable>
-  <xsl:variable name="provinceMapNodes" select="exsl:node-set($provinceMap)" />
-  
-  <xsl:variable name="lowercase">
+ 
+  <xsl:variable name="lcProv">
     <xsl:call-template name="to-lowercase">
       <xsl:with-param name="text" select="normalize-space($prov)"/>
     </xsl:call-template>
   </xsl:variable>
 
-  <xsl:variable name="noAccents">
+  <xsl:variable name="normalizedProv">
     <xsl:call-template name="remove-accents">
-      <xsl:with-param name="text" select="$lowercase"/>
+      <xsl:with-param name="text" select="$lcProv"/>
     </xsl:call-template>
   </xsl:variable>
 
-  <xsl:variable name="matchingProvince" select="$provinceMap/province[@name = $noAccents]"/>
+  <xsl:variable name="matchingProvince" select="key('provAbbr', $normalizedProv)"/>
   <xsl:choose>
     <xsl:when test="$matchingProvince">
       <xsl:value-of select="$matchingProvince/@abbr"/>
