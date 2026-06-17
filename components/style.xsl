@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:can="https://www.iso.org/obp/ui/#iso:code:3166:CA">
 
 <xsl:template name="generalStyle">
  <style>
@@ -120,7 +120,7 @@ background-color: #0075b0; padding: 0.4em; margin-top: 0.8em; border-radius: 0.2
 </xsl:template>
 
 <!-- Map province names to abbreviations -->
-<xsl:variable name="provinceMap">
+<can:provinceMap>
   <province name="alberta" abbr="AB"/>
   <province name="british columbia" abbr="BC"/>
   <province name="manitoba" abbr="MB"/>
@@ -160,6 +160,8 @@ background-color: #0075b0; padding: 0.4em; margin-top: 0.8em; border-radius: 0.2
   <!-- Informal/Alternative names -->
   <province name="newfoundland" abbr="NL"/>
   <province name="labrador" abbr="NL"/>
+  <province name="newfoundland &amp; labrador" abbr="NL"/>
+  <province name="terre neuve &amp; labrador" abbr="NL"/>
   <province name="nf" abbr="NL"/>
   <province name="terre neuve" abbr="NL"/>
   <province name="ne" abbr="NS"/>
@@ -167,8 +169,8 @@ background-color: #0075b0; padding: 0.4em; margin-top: 0.8em; border-radius: 0.2
   <province name="pei" abbr="PE"/>
   <province name="pq" abbr="QC"/>
   <province name="yukon territory" abbr="YT"/>
-</xsl:variable>
-<xsl:key name="provAbbr" match="document('')//$provinceMap" use="@name"/>
+</can:provinceMap>
+<xsl:variable name="provAbbr" select="document('')//can:provinceMap/province"/>
 
 <xsl:template name="abbreviate-province">
   <xsl:param name="prov"/>
@@ -185,7 +187,7 @@ background-color: #0075b0; padding: 0.4em; margin-top: 0.8em; border-radius: 0.2
     </xsl:call-template>
   </xsl:variable>
 
-  <xsl:variable name="matchingProvince" select="key('provAbbr', $normalizedProv)"/>
+  <xsl:variable name="matchingProvince" select="$provAbbr[@name = $normalizedProv]"/>
   <xsl:choose>
     <xsl:when test="$matchingProvince">
       <xsl:value-of select="$matchingProvince/@abbr"/>
