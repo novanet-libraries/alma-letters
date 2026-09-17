@@ -7,6 +7,10 @@
   <xsl:include href="style.xsl"/>
   <xsl:include href="recordTitle.xsl"/>
   <xsl:template match="/">
+    <xsl:if test="normalize-space(notification_data/request/status_note) = 'ConvertedToResourceSharingRequest'">
+      <!-- see https://novanet-team.atlassian.net/browse/NOV-1185 -->
+      <xsl:message terminate="yes">We choose to not send this letter when the reason is 'ConvertedToResourceSharingRequest'.</xsl:message>
+    </xsl:if>
     <html>
       <xsl:if test="notification_data/languages/string">
         <xsl:attribute name="lang">
